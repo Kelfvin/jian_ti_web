@@ -54,6 +54,8 @@
           ></el-input>
         </div>
 
+        <div class="rigister-forget-box">忘记密码</div>
+
         <el-button round>登陆</el-button>
         
       </div>
@@ -149,5 +151,9 @@ export default {
   border: none;
   outline: none;
   background-color: transparent;
+}
+
+.rigister-forget-box{
+  display: flex;
 }
 </style>

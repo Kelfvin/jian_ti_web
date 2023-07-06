@@ -4,7 +4,7 @@ import VueRouter from "vue-router"
 import LoginPage from "../view/login"
 import MainPage from "../view/main"
 import RigisterPage from "../view/rigister"
-import SelfPage from "../view/self"
+import SelfPage from "../view/userinfo"
 import ProblemsPage from "../view/problems"
 // 声明常量
 
@@ -19,11 +19,11 @@ const router = new VueRouter({
             children:[
             // 存放Main页面嵌套路由
                 {
-                    path: 'problems',
+                    path: '/problems',
                     component: ProblemsPage
                 },
                 {
-                    path:'self',
+                    path:'/userinfo',
                     component: SelfPage
                 }
             ]

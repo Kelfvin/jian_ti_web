@@ -21,9 +21,10 @@
   default-active="1"
   class="el-menu-vertical-demo"
   background-color="#ffffff"
-  text-color="#000000"
+  text-color="#000000" 
+  router="true"
   >
-  <el-menu-item index="1">
+  <el-menu-item index="userinfo">
     <i class="el-icon-user-solid" style=""></i>
     <span slot="title" style="font-size:17px;">个人资料</span>
   </el-menu-item>
@@ -49,13 +50,12 @@
 
 
 <!-- 主要页面 -->
-    <el-main>
-    <router-link to="/Main/problems">to the problems page</router-link>
-    <router-view>  </router-view>
+    <el-main><el-divider/>
     <el-breadcrumb :separator-icon="ArrowRight">
-<el-breadcrumb-item :to="{ path: '/' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item>
+<!-- <el-breadcrumb-item :to="{ path: '/Main/problems' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item> -->
+<router-view>  </router-view>
     </el-breadcrumb>
-    <el-divider />
+    
     </el-main>
 
 <!-- 底部信息 -->

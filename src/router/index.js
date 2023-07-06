@@ -17,9 +17,14 @@ const router = new VueRouter({
             path: '/Main',
             component: MainPage,
             children:[
+            // 存放Main页面嵌套路由
                 {
                     path: 'problems',
                     component: ProblemsPage
+                },
+                {
+                    path:'self',
+                    component: SelfPage
                 }
             ]
         },
@@ -30,14 +35,6 @@ const router = new VueRouter({
         {
             path: '/rigister',
             component: RigisterPage
-        },
-        {
-            path: '/self',
-            component: SelfPage
-        },
-        {
-            path: '/Main/problems',
-            component: ProblemsPage
         }
     ]
 }

@@ -5,7 +5,7 @@
 </template>
 <script>
     export default{
-        name:'ProblemsDescribe'
+        name:'ProblemsComment'
     }
 </script>
 <style scoped>

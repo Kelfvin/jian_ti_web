@@ -5,6 +5,7 @@ import MainPage from "../view/main"
 import RigisterPage from "../view/rigister"
 import SelfPage from "../view/userinfo"
 import ProblemsPage from "../view/problems"
+import payCheck from "../view/payCheck";
 
 // 声明常量
 
@@ -25,6 +26,10 @@ const router = new VueRouter({
                 {
                     path:'/userinfo',
                     component: SelfPage
+                },
+                {
+                    path:'/payCheck',
+                    component:payCheck
                 }
             ]
         },

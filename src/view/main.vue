@@ -29,7 +29,7 @@
     <i class="el-icon-user-solid" style=""></i>
     <span slot="title" style="font-size:17px;">个人资料</span>
   </el-menu-item>
-  <el-menu-item index="2">
+  <el-menu-item index="payCheck">
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:17px;">购买题库</span>
   </el-menu-item>

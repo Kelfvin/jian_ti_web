@@ -3,7 +3,7 @@ import VueRouter from "vue-router"
 
 import LoginPage from "../view/login"
 import MainPage from "../view/main"
-import payCheck from "../view/payCheck"
+import RigisterPage from "../view/rigister"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -18,11 +18,11 @@ const router = new VueRouter({
         {
             path: '/login',
             component: LoginPage
-        },{
-            path:'/pay',
-            component:payCheck
-
-        }
+        },
+        {
+            path: '/rigister',
+            component: RigisterPage
+        },
     ]
 }
 )

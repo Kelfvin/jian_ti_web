@@ -38,7 +38,7 @@
           </div>
           <el-input
             v-model="input"
-            placeholder="请输入内容"
+            placeholder="请输入账号"
             class="input-inner"
           ></el-input>
         </div>
@@ -49,14 +49,16 @@
           </div>
           <el-input
             v-model="input"
-            placeholder="请输入内容"
+            placeholder="请输入密码"
             class="input-inner"
           ></el-input>
         </div>
 
-        <div class="rigister-forget-box">忘记密码</div>
+        <div class="rigister-forget-box">
+          <router-link class="rigister" to="/rigister">忘记密码/注册账号</router-link>
+        </div>
 
-        <el-button round>登陆</el-button>
+        <el-button round class="login-botton">登陆</el-button>
         
       </div>
       </div>
@@ -114,14 +116,15 @@ export default {
 }
 
 .right-box p {
-  font-size: 24px;
+  font-size: 3vh;
   font-family: Microsoft YaHei-Bold, Microsoft YaHei;
+  margin-bottom: 7vh;
 }
 
 .logo {
-  height: 70px;
-  width: 70px;
-  margin-top: 5vh;
+  height: 13vh;
+  width: 13vh;
+  margin-top: 4vh;
 }
 
 .logo img {
@@ -130,30 +133,51 @@ export default {
 }
 
 .input-box {
-  border-radius: 14px;
-  width: 30vw;
-  overflow: hidden;
+  margin-top: 1vh;
+  width: 26vw;
   align-items: center;
   display: flex;
-
-  margin-bottom: 20px;
+  margin-bottom: 1vh;
+  margin-right: 3vw;
 }
 
 .icon {
   height: 23px;
   width: 23px;
-  margin: 0 3px 0 10px;
-  font-size: 20px;
+  margin-left: 1vh;
+  margin-right: 3vh;
+  font-size: 3vh;
   align-items: center;
+
 }
 
 .input-inner /deep/ .el-input__inner {
-  border: none;
+  border-radius: 1.5vh;
+  height: 6vh;
   outline: none;
+  margin-left: 2vh;
   background-color: transparent;
+  font-size: 1.6vh;
+
 }
 
 .rigister-forget-box{
-  display: flex;
+  margin-left: auto;
+  margin-right: 3vh;
+  margin-top: 1vh;
+  lighting-color: #b9d7ea;
+  font-size: 2vh;
+  
 }
+
+.login-botton{
+  margin-bottom: 10vh;
+  margin-top: auto;
+  font-size: 2vh;
+  height: 5vh;
+  width: 8vw;
+  background-color: #769fcd;
+  color: white;
+}
+
 </style>

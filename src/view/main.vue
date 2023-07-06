@@ -21,7 +21,8 @@
 router="true"
   class="el-menu-vertical-demo"
   background-color="#ffffff"
-  text-color="#000000"
+  text-color="#000000" 
+  router="true"
   >
   <el-menu-item index="self" >
     <i class="el-icon-user-solid"></i>
@@ -49,9 +50,12 @@ router="true"
 
 
 <!-- 主要页面 -->
-    <el-main>
-      <router-link to="/Main/problems">to the problems page</router-link>
-      <router-view/>
+    <el-main><el-divider/>
+    <el-breadcrumb :separator-icon="ArrowRight">
+<!-- <el-breadcrumb-item :to="{ path: '/Main/problems' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item> -->
+<router-view>  </router-view>
+    </el-breadcrumb>
+    
     </el-main>
 
 <!-- 底部信息 -->

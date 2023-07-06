@@ -9,7 +9,7 @@
   <img src="../assets/logo.png" style="float:left;padding-left:5%;width:60px;height:60px;" alt="your-image-alt">
   <!-- 用户头像 -->
   <div class="block">
-      <el-avatar shape="square" :size="50" :src="squareUrl" style="float:right;position: relative;top:-37px" />
+      <el-avatar shape="square" :size="50" src="@/@/assets/logo.png" style="float:right;position: relative;top:-37px" />
     </div>
 </el-header>
 <el-divider />
@@ -51,6 +51,7 @@ router="true"
 <!-- 主要页面 -->
     <el-main><el-divider/>
     <el-breadcrumb :separator-icon="ArrowRight">
+      <router-link to="/problems">to the problem</router-link>
 <!-- <el-breadcrumb-item :to="{ path: '/Main/problems' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item> -->
 <router-view>  </router-view>
     </el-breadcrumb>

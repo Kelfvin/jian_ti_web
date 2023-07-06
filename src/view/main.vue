@@ -24,22 +24,22 @@
   text-color="#000000" 
   router="true"
   >
-  <!-- 不用改动 -->
-  <el-menu-item index="userinfo">  
-    <i class="el-icon-user-solid" style=""></i>
-    <span slot="title" style="font-size:17px;">个人资料</span>
+  <!-- 不用改动  其中数字代表跳转的页面  相应负责人改-->
+  <el-menu-item index="3">
+    <i class="el-icon-folder"></i>
+    <span slot="title" style="font-size:17px;">我的题库</span>
   </el-menu-item>
   <el-menu-item index="payCheck">
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:17px;">购买题库</span>
   </el-menu-item>
-  <el-menu-item index="3">
-    <i class="el-icon-folder"></i>
-    <span slot="title" style="font-size:17px;">我的题库</span>
-  </el-menu-item>
   <el-menu-item index="4">
     <i class="el-icon-time"></i>
     <span slot="title" style="font-size:17px;">历史数据</span>
+  </el-menu-item>
+  <el-menu-item index="userinfo">  
+    <i class="el-icon-user"></i>
+    <span slot="title" style="font-size:17px;">个人资料</span>
   </el-menu-item>
   <el-menu-item index="5">
     <i class="el-icon-warning-outline"></i>

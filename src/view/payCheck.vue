@@ -2,10 +2,10 @@
   <el-card class="box-card">
     <ul class="msg-box">
       <li>
-        <h4>获取专有货币</h4>
+        <h4 style="font-size:1vw">获取专有货币</h4>
       </li>
       <li>
-        <h4 style="margin-bottom: 15px">充值金额</h4>
+        <h4 style="margin-bottom: 15px;font-size:1vw">充值金额</h4>
         <el-radio-group v-model="amountVal" @change="amountChange">
           <el-radio border :label="'' + 100">充值100</el-radio>
           <el-radio border :label="'' + 500">充值500</el-radio>
@@ -17,7 +17,7 @@
       </li>
 
       <li>
-        <h4 style="margin-bottom: 15px">充值方式</h4>
+        <h4 style="margin-bottom: 15px;font-size:1vw">充值方式</h4>
         <el-radio-group v-model="rechargeParams.paymentType" @change="paymentTypeChange">
           <el-radio border :label="'' + 0">微信</el-radio>
           <el-radio border :label="'' + 1">支付宝</el-radio>
@@ -25,7 +25,7 @@
       </li>
 
       <li>
-        <h4 style="margin-bottom: 15px">充值金额</h4>
+        <h4 style="margin-bottom: 15px;font-size:1vw">充值金额</h4>
         <!-- <img src="{:url('qrcode',['text'=>$text])}" /> -->
         <el-input
             :disabled="disabled"

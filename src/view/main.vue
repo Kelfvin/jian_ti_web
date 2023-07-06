@@ -24,12 +24,12 @@
   text-color="#000000" 
   router="true"
   >
-  <!-- 不用改动  其中数字代表跳转的页面  相应负责人改-->
-  <el-menu-item index="3">
-    <i class="el-icon-folder"></i>
-    <span slot="title" style="font-size:17px;">我的题库</span>
+  <!-- 不用改动 -->
+  <el-menu-item index="userinfo">  
+    <i class="el-icon-user-solid"></i>
+    <span slot="title" style="font-size:17px;">个人资料</span>
   </el-menu-item>
-  <el-menu-item index="payCheck">
+  <el-menu-item index="2">
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:17px;">购买题库</span>
   </el-menu-item>
@@ -45,7 +45,14 @@
     <i class="el-icon-warning-outline"></i>
     <span slot="title" style="font-size:17px;">使用说明</span>
   </el-menu-item>
+  <el-menu-item index="payCheck">
+    <i class="el-icon-goods"></i>
+    <span slot="title" style="font-size:17px;">余额充值</span>
+  </el-menu-item>
 </el-menu>
+    <div class="vue-page-container">
+      <component :is="yourVuePage"></component>
+    </div>
 </el-aside>
   <el-container>
 
@@ -53,6 +60,7 @@
 <!-- 主要页面 -->
     <el-main>
     <el-breadcrumb :separator-icon="ArrowRight">
+
 <!-- <el-breadcrumb-item :to="{ path: '/Main/problems' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item> -->
 <router-view>  </router-view>
     </el-breadcrumb>
@@ -69,17 +77,24 @@
 </template>
 
 <script>
+import uploadFile from "../view/uploadFile";
 export default {
     name:'MainPage',
     data(){
       return{
-        
+        yourVuePage:uploadFile
       }
     }
 }
 </script>
 
 <style>
+  .vue-page-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50px;
+  /* 其他样式属性 */
+}
  .container{
       height: 100%;
       /* background-color:  */

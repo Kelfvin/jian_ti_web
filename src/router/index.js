@@ -8,7 +8,7 @@ import ProblemsPage from "../view/problemPage/problems"
 import ProblemsDescribe from "../view/problemPage/problemDescribe"
 import ProblemsComment from "../view/problemPage/problemComment"
 import SelfPage from "../view/userinfo"
-import ProblemsPage from "../view/problems"
+
 // 声明常量
 
 Vue.use(VueRouter)

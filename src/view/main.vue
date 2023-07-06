@@ -22,7 +22,6 @@ router="true"
   class="el-menu-vertical-demo"
   background-color="#ffffff"
   text-color="#000000" 
-  router="true"
   >
   <el-menu-item index="self" >
     <i class="el-icon-user-solid"></i>

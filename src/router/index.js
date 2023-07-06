@@ -4,7 +4,7 @@ import LoginPage from "../view/login"
 import MainPage from "../view/main"
 import RigisterPage from "../view/rigister"
 import SelfPage from "../view/userinfo"
-import ProblemsPage from "../view/problems"
+
 // 声明常量
 
 Vue.use(VueRouter)

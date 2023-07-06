@@ -53,7 +53,6 @@
       rechargeParams: {
         totalAmt: "", //金额
         paymentType: "0", //支付方式[0:微信,1:支付宝,2:活动]
-
       },
       code: "",
     };
@@ -76,8 +75,16 @@
     surePay() {
       if (this.rechargeParams.totalAmt == "") {
         this.$message.warning("请输入金额");
+      } else {
+        this.$alert('该功能尚未实现，程序猿正在制作中😀', '提示', {
+          confirmButtonText: '确定',
+          dangerouslyUseHTMLString: true
+        });
       }
     }
+
+
+
   }
 };
 </script>

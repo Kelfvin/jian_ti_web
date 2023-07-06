@@ -1,5 +1,4 @@
 <template>
-
     <div class="self">
         <div style="width: 100%;height: 10vh;">
             <h2>个人资料</h2>

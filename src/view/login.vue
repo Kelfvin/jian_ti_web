@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <div class="login-box">
       <div class="left-box">
         <svg
           width="960"
@@ -94,9 +93,12 @@
       </div>
 
       <div class="right">
-        <div class="right-box">
+        <div class="login-box">
           <div class="logo"><img src="@/assets/logo.png" /></div>
           <p>简题·在线刷题</p>
+
+          <div class="alert-info">{{ alertMessage }}</div>
+
           <div class="input-box">
             <div class="icon">
               <i class="el-icon-user"></i>
@@ -114,7 +116,7 @@
             </div>
             <el-input
               v-model="password"
-              :type="hiddenPwd? 'password':'text'"
+              :type="hiddenPwd ? 'password' : 'text'"
               placeholder="请输入密码"
               class="input-inner"
             ></el-input>
@@ -131,9 +133,48 @@
 
           <el-button round class="login-botton" @click="login">登陆</el-button>
         </div>
+        <div class="rigister-box">
+          <div class="logo"><img src="@/assets/logo.png" /></div>
+          <p>简题·在线刷题</p>
+
+          <div class="alert-info">{{ alertMessage }}</div>
+
+          <div class="input-box">
+            <div class="icon">
+              <i class="el-icon-user"></i>
+            </div>
+            <el-input
+              v-model="account"
+              placeholder="请输入账号"
+              class="input-inner"
+            ></el-input>
+          </div>
+
+          <div class="input-box">
+            <div class="icon">
+              <i class="el-icon-key"></i>
+            </div>
+            <el-input
+              v-model="password"
+              :type="hiddenPwd ? 'password' : 'text'"
+              placeholder="请输入密码"
+              class="input-inner"
+            ></el-input>
+            <span class="material-symbols-outlined icon" @click="showPassword">
+              {{ hiddenPwd ? "visibility_off" : "visibility" }}
+            </span>
+          </div>
+
+          <div class="rigister-forget-box">
+            <router-link class="rigister-botton" 
+              >忘记密码/注册账号</router-link
+            >
+          </div>
+
+          <el-button round class="login-botton" @click="login">登陆</el-button>
+        </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -144,17 +185,32 @@ export default {
       account: "",
       password: "",
       hiddenPwd: true,
+      alertMessage: "",
     };
   },
   methods: {
     showPassword() {
       this.hiddenPwd = !this.hiddenPwd;
     },
-    login(){
+    login() {
       // 登陆的代码
-      console.log(this.account)
-      console.log(this.password)
-      this.$router.push('/')
+
+      if (
+        this.password == null ||
+        this.account == null ||
+        this.password.length == 0 ||
+        this.account.length == 0
+      ) {
+        this.alertMessage = "密码或账户不能为空";
+        return;
+      }
+
+      console.log(this.account);
+      console.log(this.password);
+      this.$router.push("/");
+    },
+    flip(){
+        
     }
   },
 };
@@ -167,11 +223,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.login-box {
   display: flex;
 }
+
 
 .left-box {
   flex: 1;
@@ -189,7 +243,7 @@ export default {
   width: 50vw;
 }
 
-.right-box {
+.login-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -201,10 +255,10 @@ export default {
   height: 70vh;
 }
 
-.right-box p {
-  font-size: 3vh;
+.login-box p {
+  font-size: 2.5vw;
   font-family: Microsoft YaHei-Bold, Microsoft YaHei;
-  margin-bottom: 4vh;
+  margin-bottom: 2vh;
 }
 
 .logo {
@@ -218,6 +272,15 @@ export default {
   height: 100%;
 }
 
+.alert-info {
+  color: #f56c6c;
+  font-size: 1.2vw;
+  height: 1.5vw;
+  margin-left: 2vw;
+  margin-right: auto;
+  margin-bottom: 1vh;
+}
+
 .input-box {
   border: 1.5px solid;
   border-radius: 2.5vh;
@@ -228,12 +291,13 @@ export default {
   margin-bottom: 1vh;
   margin-left: 4vw;
   margin-right: 4vw;
+  /* border-color: #b9d7ea; */
 }
 
 .icon {
   margin-left: 2vh;
   margin-right: 2vh;
-  font-size: 3vh;
+  font-size: 2.3vw;
   align-items: center;
 }
 
@@ -242,24 +306,33 @@ export default {
   outline: none;
   border: none;
   background-color: transparent;
-  font-size: 2vh;
+  font-size: 1.3vw;
 }
 
 .rigister-forget-box {
   margin-left: auto;
   margin-right: 3vh;
   margin-top: 1vh;
-  lighting-color: #b9d7ea;
+  color: #b9d7ea;
   font-size: 2vh;
 }
 
 .login-botton {
   margin-bottom: 10vh;
   margin-top: auto;
-  font-size: 2vh;
+  font-size: 1.5vw;
   height: 6vh;
   width: 8vw;
+  border: none;
   background-color: #769fcd;
   color: white;
+}
+
+.login-botton:hover {
+  transform: translateY(-3px);
+  border: none;
+  background-color: #769fcd;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 </style>  

@@ -29,7 +29,7 @@
     <i class="el-icon-user-solid"></i>
     <span slot="title" style="font-size:17px;">个人资料</span>
   </el-menu-item>
-  <el-menu-item index="payCheck">
+  <el-menu-item index="2">
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:17px;">购买题库</span>
   </el-menu-item>
@@ -45,7 +45,14 @@
     <i class="el-icon-warning-outline"></i>
     <span slot="title" style="font-size:17px;">使用说明</span>
   </el-menu-item>
+  <el-menu-item index="payCheck">
+    <i class="el-icon-goods"></i>
+    <span slot="title" style="font-size:17px;">余额充值</span>
+  </el-menu-item>
 </el-menu>
+    <div class="vue-page-container">
+      <component :is="yourVuePage"></component>
+    </div>
 </el-aside>
   <el-container>
 
@@ -70,17 +77,24 @@
 </template>
 
 <script>
+import uploadFile from "../view/uploadFile";
 export default {
     name:'MainPage',
     data(){
       return{
-        
+        yourVuePage:uploadFile
       }
     }
 }
 </script>
 
 <style>
+  .vue-page-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50px;
+  /* 其他样式属性 */
+}
  .container{
       height: 100%;
       /* background-color:  */

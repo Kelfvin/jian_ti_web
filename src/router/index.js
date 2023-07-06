@@ -5,6 +5,7 @@ import LoginPage from "../view/login"
 import MainPage from "../view/main"
 import RigisterPage from "../view/rigister"
 import SelfPage from "../view/self"
+import ProblemsPage from "../view/problems"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -13,8 +14,14 @@ const router = new VueRouter({
     mode:'history',
     routes: [
         {
-            path: '/',
-            component: MainPage
+            path: '/Main',
+            component: MainPage,
+            children:[
+                {
+                    path: 'problems',
+                    component: ProblemsPage
+                }
+            ]
         },
         {
             path: '/login',
@@ -28,6 +35,10 @@ const router = new VueRouter({
             path: '/self',
             component: SelfPage
         },
+        {
+            path: '/Main/problems',
+            component: ProblemsPage
+        }
     ]
 }
 )

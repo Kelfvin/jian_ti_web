@@ -9,7 +9,7 @@
   <img src="../assets/logo.png" style="float:left;padding-left:5%;width:60px;height:60px;" alt="your-image-alt">
   <!-- 用户头像 -->
   <div class="block">
-      <el-avatar shape="square" :size="50" :src="squareUrl" style="float:right;position: relative;top:-37px" />
+      <el-avatar shape="square" :size="50" :src="require(`../assets/tx.png`)" style="float:right;position: relative;top:-37px" />
     </div>
 </el-header>
 <el-divider />
@@ -18,16 +18,18 @@
 <el-container>
   <el-aside width="230px">
 <el-menu
-router="true"
+  default-active="1"
   class="el-menu-vertical-demo"
   background-color="#ffffff"
   text-color="#000000" 
+  router="true"
   >
-  <el-menu-item index="self" >
-    <i class="el-icon-user-solid"></i>
-    <span slot="title" style="font-size:17px;" v-on:click="toThePage('/Main/self')">个人资料</span>
+  <!-- 不用改动 -->
+  <el-menu-item index="userinfo">  
+    <i class="el-icon-user-solid" style=""></i>
+    <span slot="title" style="font-size:17px;">个人资料</span>
   </el-menu-item>
-  <el-menu-item index="2">
+  <el-menu-item index="payCheck">
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:17px;">购买题库</span>
   </el-menu-item>
@@ -49,7 +51,7 @@ router="true"
 
 
 <!-- 主要页面 -->
-    <el-main><el-divider/>
+    <el-main>
     <el-breadcrumb :separator-icon="ArrowRight">
 <!-- <el-breadcrumb-item :to="{ path: '/Main/problems' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item> -->
 <router-view>  </router-view>
@@ -69,10 +71,9 @@ router="true"
 <script>
 export default {
     name:'MainPage',
-    methods:{
-      toThePage:function(str){
-        console.log(1);
-        this.$router.push(str)
+    data(){
+      return{
+        
       }
     }
 }
@@ -84,7 +85,7 @@ export default {
       /* background-color:  */
   }
   .el-header {
-  background-color:rgb(164, 172, 187) ;
+  background-color:#b9d7ea;
   font-size: 28px;
 }
 .el-aside {
@@ -93,7 +94,7 @@ export default {
   color:#000000;
 }
 .el-main {
-  background-color: #f0f3f8;
+  background-color: #f7fbfc;
 }
 .el-footer {
   background-color:#f0f3f8;

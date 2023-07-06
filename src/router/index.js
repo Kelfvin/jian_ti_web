@@ -1,6 +1,5 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-
 import LoginPage from "../view/login"
 import MainPage from "../view/main"
 import RigisterPage from "../view/rigister"

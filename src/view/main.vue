@@ -50,6 +50,8 @@
 
 <!-- 主要页面 -->
     <el-main>
+    <router-link to="/problems">to the problems page</router-link>
+    <router-view>  </router-view>
     <el-breadcrumb :separator-icon="ArrowRight">
 <el-breadcrumb-item :to="{ path: '/' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item>
     </el-breadcrumb>

@@ -4,6 +4,7 @@ import VueRouter from "vue-router"
 import LoginPage from "../view/login"
 import MainPage from "../view/main"
 import RigisterPage from "../view/rigister"
+import SelfPage from "../view/self"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -22,6 +23,10 @@ const router = new VueRouter({
         {
             path: '/rigister',
             component: RigisterPage
+        },
+        {
+            path: '/self',
+            component: SelfPage
         },
     ]
 }

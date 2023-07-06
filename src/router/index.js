@@ -1,13 +1,11 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-
 import LoginPage from "../view/login"
 import MainPage from "../view/main"
 import RigisterPage from "../view/rigister"
-import ProblemsPage from "../view/problemPage/problems"
-import ProblemsDescribe from "../view/problemPage/problemDescribe"
-import ProblemsComment from "../view/problemPage/problemComment"
 import SelfPage from "../view/userinfo"
+import ProblemsPage from "../view/problems"
+import payCheck from "../view/payCheck";
 
 // 声明常量
 
@@ -22,21 +20,16 @@ const router = new VueRouter({
             children:[
             // 存放Main页面嵌套路由
                 {
-                    path: 'problems',
-                    component: ProblemsPage,
-                    children:[
-                        {
-                            path: 'describe',
-                            component: ProblemsDescribe
-                        },{
-                            path: 'comment',
-                            component: ProblemsComment
-                        }
-                    ]
+                    path: '/problems',
+                    component: ProblemsPage
                 },
                 {
                     path:'/userinfo',
                     component: SelfPage
+                },
+                {
+                    path:'/payCheck',
+                    component:payCheck
                 }
             ]
         },

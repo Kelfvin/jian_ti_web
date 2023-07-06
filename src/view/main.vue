@@ -24,7 +24,8 @@
   text-color="#000000" 
   router="true"
   >
-  <el-menu-item index="userinfo">
+  <!-- 不用改动 -->
+  <el-menu-item index="userinfo">  
     <i class="el-icon-user-solid" style=""></i>
     <span slot="title" style="font-size:17px;">个人资料</span>
   </el-menu-item>

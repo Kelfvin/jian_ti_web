@@ -5,13 +5,9 @@
 </template>
 
 <script>
-import MainPage from './view/main.vue'
 
 export default {
   name: 'App',
-  components:{
-    MainPage
-  },
   data:()=>{
     return{}
   },mounted(){

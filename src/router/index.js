@@ -14,7 +14,7 @@ const router = new VueRouter({
     mode:'history',
     routes: [
         {
-            path: '/Main',
+            path: '/',
             component: MainPage,
             children:[
             // 存放Main页面嵌套路由

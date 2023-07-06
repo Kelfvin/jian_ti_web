@@ -154,6 +154,7 @@ export default {
       // 登陆的代码
       console.log(this.account)
       console.log(this.password)
+      this.$router.push('/')
     }
   },
 };
@@ -261,4 +262,4 @@ export default {
   background-color: #769fcd;
   color: white;
 }
-</style>
+</style>  

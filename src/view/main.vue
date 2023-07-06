@@ -22,6 +22,7 @@
   class="el-menu-vertical-demo"
   background-color="#ffffff"
   text-color="#000000" 
+  router="true"
   >
   <!-- 不用改动 -->
   <el-menu-item index="userinfo">  

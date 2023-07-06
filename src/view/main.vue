@@ -24,7 +24,11 @@
   text-color="#000000" 
   router="true"
   >
-  <!-- 不用改动 -->
+  <!--把数字改为对应的页面-->
+  <el-menu-item index="1">
+    <i class="el-icon-folder"></i>
+    <span slot="title" style="font-size:17px;">我的题库</span>
+  </el-menu-item>
   <el-menu-item index="2">
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:17px;">购买题库</span>

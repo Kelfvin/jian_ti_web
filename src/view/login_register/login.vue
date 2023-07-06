@@ -106,8 +106,6 @@
         </div>
       </div>
 
-      
-
       </div>
     </div>
   </div>
@@ -121,10 +119,6 @@ export default {
   name: "LoginPage",
   data: () => {
     return {
-      account: "",
-      password: "",
-      hiddenPwd: true,
-      alertMessage: "",
       currentComponent: "Login",
     };
   },
@@ -133,28 +127,6 @@ export default {
     Register,
   },
   methods: {
-    showPassword() {
-      this.hiddenPwd = !this.hiddenPwd;
-    },
-    login() {
-      // 登陆的代码
-
-      if (
-        this.password == null ||
-        this.account == null ||
-        this.password.length == 0 ||
-        this.account.length == 0
-      ) {
-        this.alertMessage = "密码或账户不能为空";
-        return;
-      }
-
-      console.log(this.account);
-      console.log(this.password);
-      this.$router.push("/");
-    },
-    loginFlip() {},
-    rigisterFlip() {},
     switchComponent(componentName) {
       this.currentComponent = componentName;
     },
@@ -215,86 +187,5 @@ export default {
   box-shadow: 1vw;
 }
 
-.login-box p {
-  font-size: 2.2vw;
-  margin-bottom: 5vh;
-}
-
-.logo {
-  height: 13vh;
-  width: 13vh;
-  margin-top: 4vh;
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-}
-
-.alert-info {
-  color: #f56c6c;
-  font-size: 1.2vw;
-  height: 1.5vw;
-  margin-left: 2vw;
-  margin-right: auto;
-  margin-bottom: 1vh;
-}
-
-.input-box {
-  border: 1px solid;
-  border-radius: 1.5vh;
-  margin-top: 1vh;
-  width: 20vw;
-  align-items: center;
-  display: flex;
-  margin-bottom: 1vh;
-  margin-left: 4vw;
-  margin-right: 4vw;
-
-  /* border-color: #b9d7ea; */
-}
-
-.icon {
-  margin-left: 2vh;
-  margin-right: 2vh;
-  font-size: 1.8vw;
-
-  align-items: center;
-}
-
-.input-inner /deep/ .el-input__inner {
-  height: 6vh;
-  outline: none;
-  border: none;
-  background-color: transparent;
-  font-size: 1.1vw;
-}
-
-.rigister-forget-box {
-  margin-left: auto;
-  margin-right: 3vh;
-  margin-top: 1vh;
-  color: #b9d7ea;
-  font-size: 2vh;
-}
-
-.login-botton {
-  margin-bottom: 2vh;
-  margin-top: auto;
-  font-size: 1.2vw;
-  height: 6vh;
-  width: 8vw;
-  border: none;
-  background-color: #769fcd;
-  color: white;
-}
-
-.login-botton:hover {
-  transform: translateY(-3px);
-  border: none;
-  background-color: #769fcd;
-  color: white;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
 </style>
 

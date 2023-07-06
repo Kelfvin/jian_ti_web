@@ -18,14 +18,14 @@
 <el-container>
   <el-aside width="230px">
 <el-menu
-  default-active="1"
+router="true"
   class="el-menu-vertical-demo"
   background-color="#ffffff"
   text-color="#000000"
   >
-  <el-menu-item index="1">
-    <i class="el-icon-user-solid" style=""></i>
-    <span slot="title" style="font-size:17px;">个人资料</span>
+  <el-menu-item index="self" >
+    <i class="el-icon-user-solid"></i>
+    <span slot="title" style="font-size:17px;" v-on:click="toThePage('/Main/self')">个人资料</span>
   </el-menu-item>
   <el-menu-item index="2">
     <i class="el-icon-goods"></i>
@@ -50,12 +50,8 @@
 
 <!-- 主要页面 -->
     <el-main>
-    <router-link to="/Main/problems">to the problems page</router-link>
-    <router-view>  </router-view>
-    <el-breadcrumb :separator-icon="ArrowRight">
-<el-breadcrumb-item :to="{ path: '/' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item>
-    </el-breadcrumb>
-    <el-divider />
+      <router-link to="/Main/problems">to the problems page</router-link>
+      <router-view/>
     </el-main>
 
 <!-- 底部信息 -->
@@ -69,7 +65,13 @@
 
 <script>
 export default {
-    name:'MainPage'
+    name:'MainPage',
+    methods:{
+      toThePage:function(str){
+        console.log(1);
+        this.$router.push(str)
+      }
+    }
 }
 </script>
 

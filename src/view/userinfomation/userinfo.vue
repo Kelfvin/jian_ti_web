@@ -25,8 +25,8 @@
                 background-color: #f7fbfc;
                 border-radius: 20px;">
                   <div slot="header" class="clearfix">
-                    <el-avatar :size="100" :src="require(`../assets/tx.png`)" class="self-img"></el-avatar>
-                    <el-button style="float: right; padding: 3px 0" type="text">点击修改基础信息</el-button>
+                    <el-avatar :size="100" :src="require(`../../assets/tx.png`)" class="self-img"></el-avatar>
+                    <el-button style="float: right; padding: 3px 0" type="text">基础信息</el-button>
                   </div>
                   <div class="IdCard">
                     <div class="text item" style="font-size: 1.2vw;font-weight: bold;">
@@ -86,7 +86,6 @@
     </div>
 </div>
 
-
 </template>
 
 
@@ -101,10 +100,10 @@ export default{
   },
   methods:{
     cz(){
-      this.$router.push('/payCheck');
+      this.$router.push('../payCheck');
     },
     czrecord(){
-      this.$router.push('/payRecord');
+      this.$router.push('/userinfo/payRecord');
     },
   }
 }

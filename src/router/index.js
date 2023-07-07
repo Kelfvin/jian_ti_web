@@ -2,14 +2,14 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import LoginPage from "../view/login_register/login"
 import MainPage from "../view/main"
-import SelfPage from "../view/userinfo"
+import SelfPage from "../view/userinfomation/userinfo"
 import ProblemsPage from "../view/problemPage/problems"
 import ProblemsDescribe from "../view/problemPage/problemDescribe"
 import payCheck from "../view/payCheck"
 import ProblemsComment from "../view/problemPage/problemComment"
 import CardList from "../view/TestMarket/CardList"
 import DetailPage from "../view/TestMarket/DetailPage"
-import payRecord from "../view/payRecord"
+import payRecord from "../view/userinfomation/payRecord"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -39,6 +39,10 @@ const router = new VueRouter({
                 {
                     path:'/userinfo',
                     component: SelfPage
+                },
+                {
+                    path:'/userinfo/payRecord',
+                    component:payRecord
                 },
                 {
                     path:'/payCheck',

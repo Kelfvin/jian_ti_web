@@ -1,8 +1,7 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import LoginPage from "../view/login"
+import LoginPage from "../view/login_register/login"
 import MainPage from "../view/main"
-import RigisterPage from "../view/rigister"
 import SelfPage from "../view/userinfo"
 import ProblemsPage from "../view/problemPage/problems"
 import ProblemsDescribe from "../view/problemPage/problemDescribe"
@@ -47,10 +46,6 @@ const router = new VueRouter({
             path: '/login',
             component: LoginPage
         },
-        {
-            path: '/rigister',
-            component: RigisterPage
-        }
     ]
 }
 )

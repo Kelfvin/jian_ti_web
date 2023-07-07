@@ -13,7 +13,7 @@
                 v-model="dataSearch"
                 clearable>
             </el-input>
-            <el-button type="primary" icon="el-icon-search">查询</el-button>
+            <el-button type="primary" icon="el-icon-search" >查询</el-button>
             <el-table
                 :default-sort = "{prop: 'date', order: 'descending'}"
                 height="500"

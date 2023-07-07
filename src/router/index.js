@@ -22,6 +22,7 @@ const router = new VueRouter({
             children:[
             // 存放Main页面嵌套路由
                 {
+                    // 这个子路由是题目界面的路由，别塞我这儿了
                     path: '/problems',
                     component: ProblemsPage,
                     children:[

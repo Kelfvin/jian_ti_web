@@ -37,7 +37,7 @@
     <i class="el-icon-time"></i>
     <span slot="title" style="font-size:20px;">历史数据</span>
   </el-menu-item>
-  <el-menu-item index="userinfo">  
+  <el-menu-item index="/userinfo">  
     <i class="el-icon-user"></i>
     <span slot="title" style="font-size:20px;">个人资料</span>
   </el-menu-item>

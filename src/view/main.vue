@@ -37,7 +37,7 @@
     <i class="el-icon-time"></i>
     <span slot="title" style="font-size:20px;">历史数据</span>
   </el-menu-item>
-  <el-menu-item index="userinfo">  
+  <el-menu-item index="/userinfo">  
     <i class="el-icon-user"></i>
     <span slot="title" style="font-size:20px;">个人资料</span>
   </el-menu-item>
@@ -45,7 +45,7 @@
     <i class="el-icon-warning-outline"></i>
     <span slot="title" style="font-size:20px;">使用说明</span>
   </el-menu-item>
-  <el-menu-item index="payCheck">
+  <el-menu-item index="/payCheck">
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:20px;">余额充值</span>
   </el-menu-item>

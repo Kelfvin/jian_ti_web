@@ -48,9 +48,9 @@
             <div class="money2">
                 &nbsp; {{ 100.01 }}    &nbsp;    CNY
                     <div class="chongzhi">
-                <el-button>充值余额</el-button>
+                <el-button @click="cz()">充值余额</el-button>
                 <div style="display: inline-block;height: inherit;width: 2vw;;"></div>
-                <el-button>充值记录</el-button>
+                <el-button @click="czrecord()">充值记录</el-button>
                     </div>
             </div>
         </div>
@@ -93,13 +93,21 @@
 
 <script>
 
-export default({
+export default{
   data() {
     return {
       password: ''
     }
+  },
+  methods:{
+    cz(){
+      this.$router.push('/payCheck');
+    },
+    czrecord(){
+      this.$router.push('/payRecord');
+    },
   }
-})
+}
 
 </script>
 

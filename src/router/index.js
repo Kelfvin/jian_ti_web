@@ -5,10 +5,11 @@ import MainPage from "../view/main"
 import SelfPage from "../view/userinfo"
 import ProblemsPage from "../view/problemPage/problems"
 import ProblemsDescribe from "../view/problemPage/problemDescribe"
-import payCheck from "../view/payCheck";
+import payCheck from "../view/payCheck"
 import ProblemsComment from "../view/problemPage/problemComment"
 import CardList from "../view/TestMarket/CardList"
 import DetailPage from "../view/TestMarket/DetailPage"
+import payRecord from "../view/payRecord"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -47,6 +48,10 @@ const router = new VueRouter({
                 {
                     path:'/payCheck',
                     component:payCheck
+                },
+                {
+                    path:'payRecord',
+                    component:payRecord
                 }
             ]
         },

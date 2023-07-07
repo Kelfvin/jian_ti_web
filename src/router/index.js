@@ -1,13 +1,14 @@
 import Vue from "vue"
 import VueRouter from "vue-router"
-import LoginPage from "../view/login"
+import LoginPage from "../view/login_register/login"
 import MainPage from "../view/main"
-import RigisterPage from "../view/rigister"
 import SelfPage from "../view/userinfo"
 import ProblemsPage from "../view/problemPage/problems"
 import ProblemsDescribe from "../view/problemPage/problemDescribe"
 import payCheck from "../view/payCheck";
 import ProblemsComment from "../view/problemPage/problemComment"
+import CardList from "../view/TestMarket/CardList"
+import DetailPage from "../view/TestMarket/DetailPage"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -30,6 +31,12 @@ const router = new VueRouter({
                         },{
                             path:'comment',
                             component: ProblemsComment
+                        },{
+                            path:'/CardList',
+                            component: CardList
+                        },{
+                            path:'/CardList/Detail',
+                            component: DetailPage
                         }
                     ]
                 },
@@ -47,10 +54,6 @@ const router = new VueRouter({
             path: '/login',
             component: LoginPage
         },
-        {
-            path: '/rigister',
-            component: RigisterPage
-        }
     ]
 }
 )

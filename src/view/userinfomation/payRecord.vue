@@ -12,7 +12,7 @@
                 height="500"
                 :data="tableData"
                 stripe
-                style="width: 90%;border-radius: 10px;">
+                style="width: 90%;border-radius: 20px;">
             <el-table-column
                 prop="date"
                 label="日期"

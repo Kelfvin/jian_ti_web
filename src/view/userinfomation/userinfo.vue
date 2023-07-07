@@ -5,7 +5,7 @@
             <el-divider/>
         </div>
         
-        <!-- 头像部件 -->
+        <!-- 上方部件 -->
     
     <div class="self1" 
     style="display: flex; 
@@ -22,7 +22,8 @@
                 shadow="always" 
                 style="overflow: visible;
                 background-color: #f7fbfc;
-                border-radius: 20px;">
+                border-radius: 20px;
+                height: auto;">
                   <div slot="header" class="clearfix">
                     <el-avatar :size="100" :src="require(`../../assets/tx.png`)" class="self-img"></el-avatar>
                     <el-button style="float: right; padding: 3px 0" type="text">基础信息</el-button>
@@ -58,12 +59,12 @@
     <!-- 下方组件 -->
     <div style="overflow: hidden;">
       <el-divider/>
-      <div class="change-ps-wrapper">
-        <div class="change-ps" >
+      <div class="change-ps-wrapper ">
+        <div class="change-ps">
             <div style="margin: 2vh 2vw;">
               <h3 style="margin: 0;font-size: large;font-weight: 300;">修改密码</h3>
             </div>
-            <div class="change-body">
+            <div class="change-body" style="height: auto;">
               <div class="change-from">
                 <p>旧密码：</p>
                 <el-input placeholder="请输入原密码" class="plsInput"></el-input>              
@@ -150,7 +151,7 @@ export default{
     content: "";
   }.clearfix{
     display: block;
-    height: 10px;
+    height:0px;
   }
   .clearfix:after {
     clear: both
@@ -158,9 +159,9 @@ export default{
 /* 卡片整体设置 */
   .box-card {
     flex: 1;
-    width: 450px;
-    height: 20vh;
-    display: flex;
+    width: 430px;
+    height: 18vh;
+    /* display: flex; */
     flex-direction: column;
     /* place-content: center center; */
     margin-left: 20%;  
@@ -182,9 +183,6 @@ export default{
     font-weight: 500 ;
     width:500px;
     margin-top: 20px;
-  }
-  .chongzhi{
-
   }
   .chongzhi el-button {
   flex-grow: 1; /* 两个按钮宽度平分 */

@@ -13,8 +13,6 @@
                 </div>
                 <div class="commentBody">
                     &nbsp;&nbsp;{{i}}:你说的对，但是《你说的对》是由你说的对自主研发的一款全新你说的对。你说的对发生在一个被称作「你说的对」的你说的对世界，在这里被你说的对选中的你说的对将被授予「你说的对」，引导你说的对之力。你将扮演一位名为「你说的对」的神秘角色，在自由的旅行中邂逅你说的对、你说的对的你说的对们，和你说的对一起击败你说的对，寻找失散的你说的对，同时，逐步发掘「你说的对」的真相。
-                    <i class="el-icon-chat-line-round"></i>
-                    <i class="el-icon-thumb"></i>
                 </div>
                 <div class="commentFooter">
                     <el-collapse>

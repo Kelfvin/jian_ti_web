@@ -10,6 +10,7 @@ import ProblemsComment from "../view/problemPage/problemComment"
 import CardList from "../view/TestMarket/CardList"
 import DetailPage from "../view/TestMarket/DetailPage"
 import payRecord from "../view/userinfomation/payRecord"
+import choicePage from "../view/problemPage/problemTypeChoice"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -24,7 +25,7 @@ const router = new VueRouter({
             // 存放Main页面嵌套路由
                 {
                     // 这个子路由是题目界面的路由，别塞我这儿了
-                    path: '/problems',
+                    path: '/problems/:groupId',
                     component: ProblemsPage,
                     children:[
                         {
@@ -35,6 +36,10 @@ const router = new VueRouter({
                             component: ProblemsComment
                         }
                     ]
+                },
+                {
+                    path:'/choicePage',
+                    component:choicePage
                 },
                 {
                     path:'/userinfo',

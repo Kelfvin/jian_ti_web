@@ -36,12 +36,12 @@
             <el-main class="problemDescribe">
                 <!-- 首部导航 -->
                 <el-menu 
+                ref="menuRef"
                 mode="horizontal" 
                 active-text-color="#409EFF"
-                :default-active="$route.path"
                 :router="true">
                     <el-menu-item :index="getIndex">题目描述</el-menu-item>
-                    <el-menu-item index="/problems/comment">评论</el-menu-item>
+                    <el-menu-item :index="goToComment">评论</el-menu-item>
                 </el-menu>
                 <router-view/>
                 <!-- 题目描述 -->
@@ -59,29 +59,47 @@
                 preSelect:-1,
                 className:Array(50).fill('problemId'),
                 isDisabled:true,
+                groupId:-1,
             }
         },
         methods:{
-            toTheProblem:function(index){ 
+            toTheProblem:function(index){
                 // 确保数据为响应式更新
                 if(this.preSelect !=-1) this.$set(this.className,this.preSelect-1,'problemId')
+                // 记录当前选择的题目
                 this.preSelect=index
+                // 响应更新样式
                 this.$set(this.className,index-1,'problemId active')
                 this.$router.push({
-                    path:`/problems/describe/${this.preSelect}`
+
+                    path:`/problems/`+this.$route.params.groupId+`/describe/${this.preSelect}`
                 })
             },
             
         },
+        beforeRouteUpdate(to, from, next) {
+            const currentId = this.$route.params.id; // 当前的 ID
+            const nextId = to.params.id; // 即将切换到的 ID
+            if (currentId !== nextId) {
+                // 激活导航栏 problem的选项
+                    this.$refs.menuRef.activeIndex = to.path
+            }
+             next();
+        },
         mounted(){
             this.$set(this.className,0,'problemId active')
             this.preSelect=1
-            this.$router.push('/problems/describe/1')
+            this.$router.push('/problems/'+this.$route.params.groupId+'/describe/1')
+            this.groupId=this.$route.params.groupId
+            this.$refs.menuRef.activeIndex = this.$route.path;
         },computed:{
             getIndex(){
-                return `/problems/describe/${this.preSelect}`
-            }
-        }
+                return `/problems/`+this.groupId+`/describe/${this.preSelect}`
+            },
+            goToComment(){
+                return `/problems/`+this.groupId+`/comment`
+            },
+        },
     }
 </script>
 <style scoped>

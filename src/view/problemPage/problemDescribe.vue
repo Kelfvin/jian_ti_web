@@ -31,7 +31,7 @@
             if (currentId !== nextId) {
                 this.nowSelect = nextId;
             } next();
-  }
+        }
     }
 </script>
 <style scoped>

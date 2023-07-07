@@ -25,7 +25,7 @@
   :router="true"
   >
   <!--把数字改为对应的页面-->
-  <el-menu-item index="/problems/describe/1">
+  <el-menu-item index="/choicePage">
     <i class="el-icon-folder"></i>
     <span slot="title" style="font-size:20px;">我的题库</span>
   </el-menu-item>

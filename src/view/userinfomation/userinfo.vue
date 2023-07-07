@@ -77,7 +77,7 @@
                 <el-input placeholder="请确认密码" class="plsInput" v-model="password" ></el-input>              
               </div>
             <div class="Save">
-              <el-button type="primary" round >保存修改</el-button>
+              <el-button type="primary" round @click="changeps()">保存修改</el-button>
             </div>
             </div>
         </div>
@@ -104,6 +104,10 @@ export default{
     czrecord(){
       this.$router.push('/userinfo/payRecord');
     },
+    //读取数据库用户密码和输入的新密码进行比较更改
+    changeps(){
+
+    }
   }
 }
 

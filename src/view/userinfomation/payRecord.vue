@@ -36,7 +36,7 @@
 export default {
     data() {
       return {
-        // 从数据库拿取信息
+        // 从数据库拿取信息（待改）
         tableData: [{
           date: '2023-7-2',
           username: '周涛',

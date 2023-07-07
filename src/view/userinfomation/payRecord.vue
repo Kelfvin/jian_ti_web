@@ -7,6 +7,13 @@
             <el-divider/>
         </div>
         <div class="downside" style="margin-top: 5vh;">
+            <el-input
+                style="width: 20%;margin-right:5vh;margin-bottom: 3vh;"
+                placeholder="请输入查询日期（格式为xxxx-xx-xx）"
+                v-model="dataSearch"
+                clearable>
+            </el-input>
+            <el-button type="primary" icon="el-icon-search">查询</el-button>
             <el-table
                 :default-sort = "{prop: 'date', order: 'descending'}"
                 height="500"
@@ -36,6 +43,7 @@
 export default {
     data() {
       return {
+        dataSearch:'',
         // 从数据库拿取信息（待改）
         tableData: [{
           date: '2023-7-2',

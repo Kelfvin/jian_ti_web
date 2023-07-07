@@ -8,6 +8,12 @@
             <el-card :body-style="{ padding: '100px'}" class="sampleQuestion">
                 <span>试题{{index+1}}</span><br>
                 <span>被视为朴素唯物主义先驱的是以下哪位？</span>
+                <span>试题{{index+1}}</span><br><br>
+                <span>被视为朴素唯物主义先驱的是以下哪位？</span><br><br><br>
+                <el-button plain spam="10" class="choose">A{{ "泰勒斯" }}</el-button>
+                <el-button plain span="10" class="choose">B{{ "德拉克利特" }}</el-button>
+                <el-button plain span="10" class="choose">C{{ "德谟赫利特" }}</el-button>
+                <el-button plain span="10" class="choose">D{{ "巴门尼德" }}</el-button>
             </el-card>
         </el-row>
     </div>	

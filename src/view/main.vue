@@ -60,9 +60,9 @@
 <!-- 主要页面 -->
     <el-main>
     <el-breadcrumb :separator-icon="ArrowRight">
-
-<!-- <el-breadcrumb-item :to="{ path: '/Main/problems' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item> -->
-<router-view>  </router-view>
+      <!-- <router-link to="problems">to the problem</router-link> -->
+      <!-- <el-breadcrumb-item :to="{ path: '/Main/problems' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item> -->
+      <router-view>  </router-view>
     </el-breadcrumb>
     
     </el-main>

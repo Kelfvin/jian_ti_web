@@ -85,8 +85,9 @@
         height: 100%;
     }
     .problemGet{
+        margin-top: 5%;
         display: grid;
-        height: 60vh;
+        height: 60%;
         place-content: center center;
         grid-template-columns: repeat(5,30px);
         grid-template-rows: repeat(10,30px);
@@ -103,8 +104,11 @@
         color: #606266;
     }
     .problemId.active{
-        background-color: #409EFF;
+        background-color: #A0CFFF;
         color:white
+    }.problemId.finish{
+        background-color: #409EFF;
+        color:white;
     }
     .pageGet{
         display: flex;
@@ -119,5 +123,6 @@
         background-color: white;
         border-radius: 25px;
         padding-top: 0;
+        min-width: 500px;
     }
 </style>

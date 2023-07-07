@@ -23,6 +23,7 @@ const router = new VueRouter({
             children:[
             // 存放Main页面嵌套路由
                 {
+                    // 这个子路由是题目界面的路由，别塞我这儿了
                     path: '/problems',
                     component: ProblemsPage,
                     children:[
@@ -32,12 +33,6 @@ const router = new VueRouter({
                         },{
                             path:'comment',
                             component: ProblemsComment
-                        },{
-                            path:'/CardList',
-                            component: CardList
-                        },{
-                            path:'/CardList/Detail',
-                            component: DetailPage
                         }
                     ]
                 },
@@ -48,10 +43,12 @@ const router = new VueRouter({
                 {
                     path:'/payCheck',
                     component:payCheck
-                },
-                {
-                    path:'payRecord',
-                    component:payRecord
+                },{
+                    path:'/CardList',
+                    component: CardList
+                },{
+                    path:'/CardList/Detail',
+                    component: DetailPage
                 }
             ]
         },

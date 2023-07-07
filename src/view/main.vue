@@ -22,10 +22,10 @@
   background-color="#ffffff"
   text-color="#000000" 
   active-text-color="#000000"
-  router="true"
+  :router="true"
   >
   <!--把数字改为对应的页面-->
-  <el-menu-item index="/">
+  <el-menu-item index="/problems/describe/1">
     <i class="el-icon-folder"></i>
     <span slot="title" style="font-size:20px;">我的题库</span>
   </el-menu-item>
@@ -59,8 +59,7 @@
 
 <!-- 主要页面 -->
     <el-main>
-    <el-breadcrumb :separator-icon="ArrowRight">
-      <!-- <router-link to="problems">to the problem</router-link> -->
+    <el-breadcrumb>
       <!-- <el-breadcrumb-item :to="{ path: '/Main/problems' }" style="font-size:22px;">选中导航（待写）</el-breadcrumb-item> -->
       <router-view>  </router-view>
     </el-breadcrumb>

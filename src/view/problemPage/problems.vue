@@ -38,15 +38,12 @@
                 <el-menu 
                 mode="horizontal" 
                 active-text-color="#409EFF"
-                default-active="/problems/describe"
                 :router="true">
-                    <el-menu-item index="/problems/describe">题目描述</el-menu-item>
+                    <el-menu-item :index="getIndex">题目描述</el-menu-item>
                     <el-menu-item index="/problems/comment">评论</el-menu-item>
                 </el-menu>
-                Main
                 <router-view/>
                 <!-- 题目描述 -->
-            
             </el-main>
         </el-container>
     </div>
@@ -60,19 +57,29 @@
                 page:1,
                 preSelect:-1,
                 className:Array(50).fill('problemId'),
-                isDisabled:true
+                isDisabled:true,
             }
         },
         methods:{
-            toTheProblem:function(index){
+            toTheProblem:function(index){ 
                 // 确保数据为响应式更新
                 if(this.preSelect !=-1) this.$set(this.className,this.preSelect-1,'problemId')
                 this.preSelect=index
                 this.$set(this.className,index-1,'problemId active')
-            }
+                this.$router.push({
+                    path:`/problems/describe/${this.preSelect}`
+                })
+            },
+            
         },
         mounted(){
-            this.$router.push('/problems/describe')
+            this.$set(this.className,0,'problemId active')
+            this.preSelect=1
+            this.$router.push('/problems/describe/1')
+        },computed:{
+            getIndex(){
+                return `/problems/describe/${this.preSelect}`
+            }
         }
     }
 </script>

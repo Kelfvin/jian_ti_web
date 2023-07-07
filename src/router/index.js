@@ -28,7 +28,7 @@ const router = new VueRouter({
                     component: ProblemsPage,
                     children:[
                         {
-                            path:'describe',
+                            path:'describe/:id',
                             component:ProblemsDescribe
                         },{
                             path:'comment',

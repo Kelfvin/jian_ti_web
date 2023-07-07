@@ -7,6 +7,8 @@ import ProblemsPage from "../view/problemPage/problems"
 import ProblemsDescribe from "../view/problemPage/problemDescribe"
 import payCheck from "../view/payCheck";
 import ProblemsComment from "../view/problemPage/problemComment"
+import CardList from "../view/TestMarket/CardList"
+import DetailPage from "../view/TestMarket/DetailPage"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -29,6 +31,12 @@ const router = new VueRouter({
                         },{
                             path:'comment',
                             component: ProblemsComment
+                        },{
+                            path:'/CardList',
+                            component: CardList
+                        },{
+                            path:'/CardList/Detail',
+                            component: DetailPage
                         }
                     ]
                 },

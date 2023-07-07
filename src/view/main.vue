@@ -29,7 +29,7 @@
     <i class="el-icon-folder"></i>
     <span slot="title" style="font-size:20px;">我的题库</span>
   </el-menu-item>
-  <el-menu-item index="/">
+  <el-menu-item index="/CardList">
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:20px;">购买题库</span>
   </el-menu-item>

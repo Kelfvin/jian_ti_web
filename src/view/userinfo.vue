@@ -75,7 +75,7 @@
               </div>
               <div class="change-from">
                 <p>确认密码：</p>
-                <el-input placeholder="请确认密码" class="plsInput"></el-input>              
+                <el-input placeholder="请确认密码" class="plsInput" v-model="password" ></el-input>              
               </div>
             <div class="Save">
               <el-button type="primary" round >保存修改</el-button>
@@ -94,7 +94,11 @@
 <script>
 
 export default({
-
+  data() {
+    return {
+      password: ''
+    }
+  }
 })
 
 </script>
@@ -154,7 +158,8 @@ export default({
   .money{
     flex: 1;
     display: inline-block;
-    font-size: 14px;
+    font-size:1.3vw;
+    font-weight: bold;
     height: inherit;
     color:gray;
     position: relative;

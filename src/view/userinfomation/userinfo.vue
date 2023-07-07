@@ -1,19 +1,21 @@
 <template>
     <div class="self">
-        <div style="width: 100%;height: 10vh; ">
+        <div style="width: 100%;height: 5vh;">
             <h2 style="font-size: 30px;"><i class="el-icon-user"></i>个人资料</h2>
-            <el-divider/>
+            
         </div>
-        
+        <el-divider/>
         <!-- 上方部件 -->
     
     <div class="self1" 
-    style="display: flex; 
+    style="display: flex;
+    min-height: 200px;
     flex-direction: row; 
     justify-content: center;
      align-items: center;">
         <div style="
             flex: 1;
+            min-height: 200px;
             width: auto;
             height: inherit;
             display: inline-block;">
@@ -25,7 +27,7 @@
                 border-radius: 20px;
                 height: auto;">
                   <div slot="header" class="clearfix">
-                    <el-avatar :size="100" :src="require(`../../assets/1.jpg`)" class="self-img"></el-avatar>
+                    <el-avatar :size="30" :src="require(`../../assets/1.jpg`)" class="self-img"></el-avatar>
                     <el-button style="float: right; padding: 3px 0" type="text">基础信息</el-button>
                   </div>
                   <div class="IdCard">
@@ -122,17 +124,18 @@ export default{
     height: 80vh;
     /* overflow: hidden; */
     min-width: 500px;
+    min-height: 500px;
 }
 .self1{
     display: flex;
-    height: 20vh;
+    height: 200px;
     /* margin-top: 5%; */
     min-width:1200px;
 }
 .self-img{
     position: relative;
-    top: -8vh;
-    left: -9vh;
+    top: -15px;
+    /* left: -9vh; */
     
 }
 

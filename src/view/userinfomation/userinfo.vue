@@ -25,7 +25,7 @@
                 border-radius: 20px;
                 height: auto;">
                   <div slot="header" class="clearfix">
-                    <el-avatar :size="100" :src="require(`../../assets/tx.png`)" class="self-img"></el-avatar>
+                    <el-avatar :size="100" :src="require(`../../assets/1.jpg`)" class="self-img"></el-avatar>
                     <el-button style="float: right; padding: 3px 0" type="text">基础信息</el-button>
                   </div>
                   <div class="IdCard">
@@ -67,15 +67,15 @@
             <div class="change-body" style="height: auto;">
               <div class="change-from">
                 <p>旧密码：</p>
-                <el-input placeholder="请输入原密码" class="plsInput"></el-input>              
+                <el-input placeholder="请输入原密码" class="plsInput" v-model="oldpas" clearable></el-input>              
               </div>
               <div class="change-from">
                 <p>新密码：</p>
-                <el-input placeholder="请输入新密码" class="plsInput"></el-input>              
+                <el-input placeholder="请输入新密码" class="plsInput" v-model="newpas" clearable></el-input>              
               </div>
               <div class="change-from">
                 <p>确认密码：</p>
-                <el-input placeholder="请确认密码" class="plsInput" v-model="password" ></el-input>              
+                <el-input placeholder="请确认密码" class="plsInput" v-model="newpas2" clearable></el-input>              
               </div>
             <div class="Save">
               <el-button type="primary" round @click="changeps()">保存修改</el-button>
@@ -95,7 +95,9 @@
 export default{
   data() {
     return {
-      password: ''
+      oldpas:'',
+      newpas: '',
+      newpas2:'',
     }
   },
   methods:{

@@ -21,6 +21,7 @@
   class="el-menu-vertical-demo"
   background-color="#ffffff"
   text-color="#000000" 
+  active-text-color="#000000"
   router="true"
   >
   <!--把数字改为对应的页面-->
@@ -99,7 +100,7 @@ export default {
       /* background-color:  */
   }
   .el-header {
-  background-color:#b9d7ea;
+  background-color:#BCDDFF;
   font-size: 28px;
 }
 .el-aside {

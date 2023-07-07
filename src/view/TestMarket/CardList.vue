@@ -6,7 +6,7 @@
             <el-col :span="6" v-for="(o, index) in 3" :key="o" :offset="index > 0 ? 2 : 0">
                 <el-card :body-style="{ padding: '14px' }" class="CardList">
                     <div slot="header" class="clearfix">
-                        <!-- <img src="../assets/CardIcon.png" class="image"> -->
+                        <img src="@/assets/CardIcon.png" class="image">
                         <!--超过18汉字字符，应当省略-->
                         <span>某某题库</span>
                     </div>

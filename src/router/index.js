@@ -32,12 +32,6 @@ const router = new VueRouter({
                         },{
                             path:'comment',
                             component: ProblemsComment
-                        },{
-                            path:'/CardList',
-                            component: CardList
-                        },{
-                            path:'/CardList/Detail',
-                            component: DetailPage
                         }
                     ]
                 },
@@ -48,6 +42,12 @@ const router = new VueRouter({
                 {
                     path:'/payCheck',
                     component:payCheck
+                },{
+                    path:'/CardList',
+                    component: CardList
+                },{
+                    path:'/CardList/Detail',
+                    component: DetailPage
                 }
             ]
         },

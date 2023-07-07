@@ -38,6 +38,7 @@
                 <el-menu 
                 mode="horizontal" 
                 active-text-color="#409EFF"
+                :default-active="$route.path"
                 :router="true">
                     <el-menu-item :index="getIndex">题目描述</el-menu-item>
                     <el-menu-item index="/problems/comment">评论</el-menu-item>

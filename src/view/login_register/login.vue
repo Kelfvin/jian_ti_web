@@ -94,7 +94,7 @@
 
     <div class="right">
       <div class="login-rigister-box">
-        <component :is="currentComponent"></component>
+        <component :is="currentComponent"  @changeIndex="changeIndex"></component>
         <div class="menu">
         <div class="switchButton">
         <el-button type="text" @click="switchComponent('Login')"
@@ -130,6 +130,15 @@ export default {
     switchComponent(componentName) {
       this.currentComponent = componentName;
     },
+    changeIndex(index){
+      console.log('111');
+      if(index === 0){
+        this.currentComponent = 'Login'
+      }
+      else{
+        this.switchComponent('Register')
+      }
+    }
   },
 };
 </script>

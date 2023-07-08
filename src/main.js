@@ -6,6 +6,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 import axios from 'axios';
 
+export const EventBus = new Vue()
+
 // 配置请求的根路径
 
 axios.defaults.baseURL = 'http://127.0.0.1:3000/front_api/'

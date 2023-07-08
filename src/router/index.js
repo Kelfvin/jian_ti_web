@@ -2,7 +2,6 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import LoginPage from "../view/login_register/login"
 import MainPage from "../view/main"
-import RigisterPage from "../view/rigister"
 import historyData from "../view/historyData"
 
 import SelfPage from "../view/userinfomation/userinfo"

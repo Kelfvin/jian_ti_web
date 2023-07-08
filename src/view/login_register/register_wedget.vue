@@ -21,7 +21,6 @@
 
 <script>
 const genPassword = require('./gen_password')
-import router from '@/router'
 
 
 export default {

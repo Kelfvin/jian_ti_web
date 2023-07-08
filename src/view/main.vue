@@ -50,9 +50,6 @@
     <span slot="title" style="font-size:20px;">余额充值</span>
   </el-menu-item>
 </el-menu>
-    <div class="vue-page-container">
-      <component :is="yourVuePage"></component>
-    </div>
 </el-aside>
   <el-container>
 
@@ -71,29 +68,15 @@
   </el-container>
 </el-container>
 </el-container>
-
-  
 </template>
 
 <script>
-import uploadFile from "../view/uploadFile";
 export default {
-    name:'MainPage',
-    data(){
-      return{
-        yourVuePage:uploadFile
-      }
-    }
+  name: 'MainPage',
 }
 </script>
 
 <style>
-  .vue-page-container {
-  position: absolute;
-  bottom: 10px;
-  left: 50px;
-  /* 其他样式属性 */
-}
  .container{
       height: 100%;
       /* background-color:  */

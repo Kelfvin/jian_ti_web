@@ -21,19 +21,13 @@
               width="200">
             </el-table-column>
         </el-table>
-      <div class="upload-container">
-        <component :is="uploadVue"></component>
-      </div>
     </div>
-
 </template>
 <script>
-import uploadFile from "@/view/uploadFile";
     export default{
         name:'choicePage',
         data(){
             return{
-                uploadVue:uploadFile,
                 tableData: [{
                     problemGroup: '七天速通全栈,我觉得这就是一种成理自信',
                     problemCount: '∞',
@@ -50,7 +44,6 @@ import uploadFile from "@/view/uploadFile";
                 }
         },methods: {
             setCurrent(row) {
-                console.log(this.tableData.indexOf(row))
                 this.$router.push('/problems/'+this.tableData.indexOf(row)+'/describe/1')
                 this.$refs.singleTable.setCurrentRow(row);
             },
@@ -68,5 +61,6 @@ import uploadFile from "@/view/uploadFile";
         height: 70vh;
         border-radius: 25px;
         background-color: white;
-        padding: 5%;    }
+        padding: 5%;    
+    }
 </style>

@@ -1,22 +1,24 @@
 <template>
     <div class="problemsWindow">
-        <el-container style="height: 100%;">
+        <el-container 
+        style="height: 100%;">
             <el-aside>
                 <el-container style="height: 100%;">
                     <el-aside width="90%">
                         <!-- 题目 -->
                         <div class="problemGet">
                             <div 
-                            v-for="i in 50" 
+                            v-for="i in (problemsSum-(pageSelect-1)*50)>50?50:(problemsSum-(pageSelect-1)*50)" 
                             :class="className[(i-1)%50]"
-                            @click="toTheProblem(i)">
-                                {{i}}
+                            @click="toTheProblem((pageSelect-1)*50+i)">
+                                {{i+(pageSelect-1)*50}}
                             </div>
                         </div>
                         <div class="pageGet">
                             <el-pagination
+                            @current-change="toThePage"
                             layout="prev, pager, next"
-                            :total="page"
+                            :total="(page)*10"
                             :small="true">
                             </el-pagination>
                         </div>
@@ -54,44 +56,50 @@
         name:'problems',
         data(){
             return{
+                problemsSum:160,
                 value:100,
-                page:1,
+                page:10,
+                pageSelect:1,
                 preSelect:-1,
                 className:Array(50).fill('problemId'),
                 isDisabled:true,
-                groupId:-1,
+                groupId:-1, // 题组序号
             }
         },
         methods:{
             toTheProblem:function(index){
                 // 确保数据为响应式更新
-                if(this.preSelect !=-1) this.$set(this.className,this.preSelect-1,'problemId')
-                // 记录当前选择的题目
+                if(this.preSelect !=-1) this.$set(this.className,(this.preSelect-1)%50,'problemId')                // 记录当前选择的题目
                 this.preSelect=index
                 // 响应更新样式
-                this.$set(this.className,index-1,'problemId active')
+                this.$set(this.className,(index-1)%50,'problemId active')
                 this.$router.push({
-
                     path:`/problems/`+this.$route.params.groupId+`/describe/${this.preSelect}`
                 })
             },
-            
+            toThePage(i){
+                this.pageSelect=i
+                this.$set(this.className,(this.preSelect-1)%50,'problemId')
+                this.preSelect=(this.pageSelect-1)*50+1
+                this.$set(this.className,(this.preSelect-1)%50,'problemId active')
+                this.$router.push(`/problems/`+this.$route.params.groupId+`/describe/${this.preSelect}`)
+            }
         },
         beforeRouteUpdate(to, from, next) {
             const currentId = this.$route.params.id; // 当前的 ID
             const nextId = to.params.id; // 即将切换到的 ID
             if (currentId !== nextId) {
                 // 激活导航栏 problem的选项
-                    this.$refs.menuRef.activeIndex = to.path
-            }
-             next();
+                this.$refs.menuRef.activeIndex = to.path
+            }next();
         },
         mounted(){
             this.$set(this.className,0,'problemId active')
             this.preSelect=1
             this.$router.push('/problems/'+this.$route.params.groupId+'/describe/1')
-            this.groupId=this.$route.params.groupId
-            this.$refs.menuRef.activeIndex = this.$route.path;
+            this.groupId=this.$route.params.groupId // 路由传参，题目组序号
+            this.$refs.menuRef.activeIndex = this.$route.path;  // 默认显示样式
+            this.page=this.problemsSum/50   // 获取页数
         },computed:{
             getIndex(){
                 return `/problems/`+this.groupId+`/describe/${this.preSelect}`
@@ -112,6 +120,7 @@
     }
     .problemGet{
         margin-top: 5%;
+        padding: 10%;
         display: grid;
         height: 60%;
         place-content: center center;

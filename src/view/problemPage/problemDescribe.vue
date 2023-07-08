@@ -10,16 +10,18 @@
                 <label :for="index">{{String.fromCharCode('A'.charCodeAt(0) + index)}}.{{item}}</label>
             </div>
         </div>
-        <div style="text-align: center;">
-            <el-button type="primary" plain>提交</el-button>
+        <div style="text-align: center;padding:1%">
+            <el-button type="primary" plain @click="getData">提交</el-button>
         </div>
     </div>
 </template>
 <script>
+    import axios from 'axios';
     export default{
         name:'ProblemsDescribe',
         data(){
             return{
+                problemTable:[],
                 nowSelect:1,
                 options:Array(4).fill('嗯?')
             }
@@ -31,7 +33,19 @@
             if (currentId !== nextId) {
                 this.nowSelect = nextId;
             } next();
-        }
+        },methods: {
+            getData(){
+                axios.get('http://localhost:3000/')
+                .then(response => {
+                  // 处理响应数据
+                  console.log(response.data.data);
+                })
+                .catch(error => {
+                  // 错误处理
+                  console.error(error);
+                });
+            }
+        },
     }
 </script>
 <style scoped>

@@ -114,7 +114,7 @@ export default{
       var oldpas = console.log(this.oldpas);
       var newpas = console.log(this.newpas);
       var newpas2 = console.log(this.newpas2);
-      //获取数据库密码
+      //获取数据库存储的密码
 
       //进行新密码比较
      if(this.newpas=="" || this.newpas2=="" || this.oldpas==""){

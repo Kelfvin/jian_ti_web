@@ -27,15 +27,27 @@ export default {
 
       // 从后端获取数据
       axios
-        .get("/backapi/historyData")
+        .get("http://localhost:3000/backapi/historyData")
         .then((response) => {
           // 将从后端获取的数据赋值给backendData对象
           var backendData = response.data;
+          console.log(backendData);
+          console.log(1111);
+          // // 将字符串类型的数据转换为数值类型
+          // backendData.seriesData.forEach((item) => {
+          //   item.data = item.data.map((value) => Number(value));
+          // });
 
-          // 将字符串类型的数据转换为数值类型
-          backendData.seriesData.forEach((item) => {
-            item.data = item.data.map((value) => Number(value));
-          });
+          //         if (backendData.seriesData) {
+          //   backendData.seriesData.forEach((item) => {
+          //     item.data = item.data.map((value) => {
+          //       const parsedValue = parseFloat(value);
+          //       return isNaN(parsedValue) ? value : parsedValue;
+          //     });
+          //   });
+          // } else {
+          //   console.error('Series data is undefined.'); // 打印错误消息到控制台
+          // }
 
           let option = {
             title: {

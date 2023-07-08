@@ -22,7 +22,7 @@
             </el-table-column>
         </el-table>
       <div class="upload-container">
-        <component :is="upload"></component>
+        <component :is="uploadVue"></component>
       </div>
     </div>
 
@@ -33,7 +33,7 @@ import uploadFile from "@/view/uploadFile";
         name:'choicePage',
         data(){
             return{
-                upload:uploadFile,
+                uploadVue:uploadFile,
                 tableData: [{
                     problemGroup: '七天速通全栈,我觉得这就是一种成理自信',
                     problemCount: '∞',

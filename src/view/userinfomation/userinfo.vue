@@ -93,6 +93,7 @@
 
 
 <script>
+  import axios from "axios"
 export default{
   data() {
     return {
@@ -107,39 +108,88 @@ export default{
     },
     czrecord(){
       this.$router.push('/userinfo/payRecord');
-    },
-    //读取数据库用户密码和输入的新密码进行比较然后更改
-    changeps(){
-      //获取用户输入的密码
-      var oldpas = console.log(this.oldpas);
-      var newpas = console.log(this.newpas);
-      var newpas2 = console.log(this.newpas2);
-      //获取数据库存储的密码
-
-      //进行新密码比较
-     if(this.newpas=="" || this.newpas2=="" || this.oldpas==""){
-        this.$message.error('密码不能为空！');
-      }
-      else if(this.newpas!=this.newpas2){
+    }, async changeps() {
+      // 检查新密码和确认密码是否一致
+      if (this.newpas !== this.newpas2) {
+        console.log('新密码与确认密码不一致');
         this.$message.error("两次输入的密码不一致！");
-      //输入密码不能为空
+        return;
       }
-      //将数据库获取的密码与old密码进行比对
-      else if(this.oldpas=="123456") {
-        this.$message.success("修改密码成功");
-        this.oldpas='';
-        this.newpas='';
-        this.newpas2='';
-        //将数据库的用户密码进行修改
-        
-      } else{
-        this.$message.error("旧密码不正确！请重新输入");
-      }
-  }
+      // 发送异步请求到后端，进行密码匹配和修改操作
+      await axios.get('http://localhost:3000/' + this.oldpas)
+        .then(response => {
+          console.log(response.data)
+          const userPwd = response.data;
+          if ((userPwd.data["user_pwd"]) === this.oldpas) {
+            // 旧密码匹配成功，执行密码修改操作
+            axios.post('http://localhost:3000/'+ this.newpas)
+              .then(response => {
+                console.log('密码修改成功');
+                this.$message.success('修改成功！');
+                this.oldpas='';
+                this.newpas='';
+                this.newpas2='';
+                // 在此处可以执行密码修改成功后的操作，例如显示成功消息、跳转页面等
+              })
+              .catch(error => {
+                console.error(error);
+                // 处理密码修改失败的情况
+              });
+          } else {
+            console.log('旧密码不匹配');
+            // 在此处可以执行旧密码不匹配的操作，例如显示错误消息等
+            this.$message.error('旧密码错误！');
+          }
+        })
+        .catch(error => {
+          console.error(error);
+          // 处理请求错误的情况
+        });
+    },
+
+            //   // 读取数据库用户密码和输入的新密码进行比较然后更改
+            //   changeps(){
+            //     //获取用户输入的密码
+            //     var oldpas = this.oldpas;
+            //     var newpas = this.newpas;
+            //     var newpas2 = this.newpas2;
+            //     //异步请求
+            //     axios.get('http://localhost:3000/'+oldpas)
+            //           .then(response => {
+            //             // 处理响应数据
+            //           console.log(response.data.user_pwd);
+
+            //           })
+            //           .catch(error => {
+            //             // 错误处理
+            //           console.error(error);
+            //           });
+
+            //     //进行新密码比较
+            //    if(this.newpas=="" || this.newpas2=="" || this.oldpas==""){
+            //       this.$message.error('密码不能为空！');
+            //     }
+            //     else if(this.newpas!=this.newpas2){
+            //       this.$message.error("两次输入的密码不一致！");
+            //     //输入密码不能为空
+            //     }
+            //     //将数据库获取的密码与old密码进行比对
+            //     else if(this.oldpas=="123456") {
+            //       this.$message.success("修改密码成功");
+            //       this.oldpas='';
+            //       this.newpas='';
+            //       this.newpas2='';
+            //       //将数据库的用户密码进行修改
+                  
+            //     } else{
+            //       this.$message.error("旧密码不正确！请重新输入");
+            //     }
+            // }
+
+
   }
 }
 
-  
 </script>
 
 <style scoped>

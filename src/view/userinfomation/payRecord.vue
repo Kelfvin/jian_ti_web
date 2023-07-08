@@ -13,11 +13,11 @@
                 v-model="dataSearch"
                 clearable>
             </el-input>
-            <el-button type="primary" icon="el-icon-search" >查询</el-button>
+            <el-button type="primary" icon="el-icon-search" @click="reSetSearch()">重置查询日期</el-button>
             <el-table
                 :default-sort = "{prop: 'date', order: 'descending'}"
                 height="500"
-                :data="tableData"
+                :data="filteredTableData"
                 stripe
                 style="width: 90%;border-radius: 20px;">
             <el-table-column
@@ -45,29 +45,36 @@ export default {
       return {
         dataSearch:'',
         // 从数据库拿取信息（待改）
-        tableData: [{
-          date: '2023-7-2',
-          username: '周涛',
-          money: '300R'
-        }, {
-          date: '2023-7-4',
-          username: '周涛',
-          money: '500R'
-        }, {
-          date: '2023-7-5',
-          username: '周涛',
-          money: '800R'
-        }, {
-          date: '2023-7-8',
-          username: '周涛',
-          money: '100R'
-        }]
-      }
-    },
+        tableData: [
+            {date: '2023-7-2',username: '周涛',money: '300R'}, 
+            {date: '2023-7-4',username: '周涛',money: '500R'}, 
+            {date: '2023-7-5',username: '周涛',money: '800R'}, 
+            {date: '2023-7-8',username: '周涛',money: '100R'},
+                   ]
+             }
+            },
+    computed: {
+          filteredTableData() {
+          // 根据输入的日期过滤表格数据
+          const searchDate = this.dataSearch.trim();
+            if (!searchDate) {
+          // 如果输入的日期为空，则返回全部数据
+            return this.tableData;
+            } else {
+          // 否则，返回与输入日期匹配的数据
+            return this.tableData.filter((item) => item.date === searchDate);
+          }
+      },
+  },
     methods:{
         goBack(){
             this.$router.push('/userinfo');
         },
+        reSetSearch(){
+          //重置查询日期
+            this.dataSearch = '';
+
+        }
     }
 }
 </script>

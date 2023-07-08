@@ -11,6 +11,7 @@ import CardList from "../view/TestMarket/CardList"
 import DetailPage from "../view/TestMarket/DetailPage"
 import payRecord from "../view/userinfomation/payRecord"
 import choicePage from "../view/problemPage/problemTypeChoice"
+import uesInstruction from "../view/useInstruction"
 // 声明常量
 
 Vue.use(VueRouter)
@@ -58,7 +59,10 @@ const router = new VueRouter({
                 },{
                     path:'/CardList/Detail',
                     component: DetailPage
-                }
+                },{
+                    path:'useInstruction',
+                    component: uesInstruction
+                },
             ]
         },
         {

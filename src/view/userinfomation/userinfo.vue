@@ -5,7 +5,7 @@
             
         </div>
         <el-divider/>
-        <!-- 上方部件 -->
+        <!-- 上方部件 不要动-->
     
     <div class="self1" 
     style="display: flex;
@@ -32,13 +32,13 @@
                   </div>
                   <div class="IdCard">
                     <div class="text item" style="font-size: 1.2vw;font-weight: bold;">
-                  用户名：{{ /* 后台获取 */ }} 我已经在做了！
+                  用户名：{{  }} 我已经在做了！
                 </div>
                 <div class="text item" style="font-size: 0.9vw;">
-                  邮箱：{{ /* 后台获取 */ }} 494407383@qq.com
+                  邮箱：{{  }} 494407383@qq.com
                 </div>
                 <div class="text item" style="font-size: 0.7vw;">
-                  个性签名：{{ /* 后台获取 */ }} 牛！
+                  个性签名：{{  }} 牛！
                 </div>
                   </div>
                   
@@ -93,7 +93,6 @@
 
 
 <script>
-
 export default{
   data() {
     return {
@@ -109,13 +108,38 @@ export default{
     czrecord(){
       this.$router.push('/userinfo/payRecord');
     },
-    //读取数据库用户密码和输入的新密码进行比较更改
+    //读取数据库用户密码和输入的新密码进行比较然后更改
     changeps(){
+      //获取用户输入的密码
+      var oldpas = console.log(this.oldpas);
+      var newpas = console.log(this.newpas);
+      var newpas2 = console.log(this.newpas2);
+      //获取数据库密码
 
-    }
+      //进行新密码比较
+     if(this.newpas=="" || this.newpas2=="" || this.oldpas==""){
+        this.$message.error('密码不能为空！');
+      }
+      else if(this.newpas!=this.newpas2){
+        this.$message.error("两次输入的密码不一致！");
+      //输入密码不能为空
+      }
+      //将数据库获取的密码与old密码进行比对
+      else if(this.oldpas=="123456") {
+        this.$message.success("修改密码成功");
+        this.oldpas='';
+        this.newpas='';
+        this.newpas2='';
+        //将数据库的用户密码进行修改
+        
+      } else{
+        this.$message.error("旧密码不正确！请重新输入");
+      }
+  }
   }
 }
 
+  
 </script>
 
 <style scoped>

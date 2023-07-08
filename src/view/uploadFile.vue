@@ -1,63 +1,62 @@
 <template>
   <div>
-    <el-button type="primary"  @click="showUploadDialog">题库上传</el-button>
-    <el-dialog :visible="uploadVisible" title="题库上传" @close="uploadVisible = false">
-      <el-upload
-          action="/upload"
-          :on-success="handleUploadSuccess"
-          :on-error="handleUploadError"
-          :before-upload="beforeUpload"
-          :auto-upload="false"
-      >
-        <el-button slot="trigger" size="small" type="primary">选择文件</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png/pdf文件，且不超过10MB</div>
-      </el-upload>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="uploadVisible = false">取消</el-button>
-        <el-button type="primary" @click="upload">上传</el-button>
-      </div>
-    </el-dialog>
+    <button class="upload-button" @click="openFileInput">题库上传</button>
+    <input type="file" ref="fileInput" style="display: none" @change="handleFileChange">
   </div>
 </template>
 
+<style>
+.upload-button {
+  position: absolute;
+  bottom: 25px;
+  left: 4.5%;
+  background-color: #0b66c0;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
 <script>
+import axios from 'axios';
+
 export default {
-  name:'uploadFile',
-  data() {
-    return {
-      uploadVisible: false
-    };
-  },
+  name: 'QuestionBankUpload',
   methods: {
-    showUploadDialog() {
-      this.uploadVisible = true;
+    openFileInput() {
+      this.$refs.fileInput.click();
     },
-    handleUploadSuccess() {
-      this.$message.success('文件上传成功');
-      // 处理上传成功后的逻辑
-    },
-    handleUploadError() {
-      this.$message.error('文件上传失败');
-      // 处理上传失败后的逻辑
-    },
-    beforeUpload(file) {
-      const isJPG = file.type === 'image/jpeg' || file.type === 'image/png';
-      const isLt2M = file.size / 1024 / 1024 < 2;
+    handleFileChange(event) {
+      const fileInput = event.target;
+      const selectedFile = fileInput.files[0];
 
-      if (!isJPG) {
-        this.$message.error('只能上传jpg/png文件');
+      if (selectedFile) {
+        this.uploadFile(selectedFile);
       }
-      if (!isLt2M) {
-        this.$message.error('文件大小不能超过2MB');
-      }
-
-      return isJPG && isLt2M;
     },
-    upload() {
-      // 执行上传操作
-      // 可以在这里调用接口上传文件
-      this.uploadVisible = false;
+    uploadFile(file) {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      axios.post('/upload', formData)
+          .then(response => {
+            // 处理上传成功后的响应
+            console.log(response.data);
+            this.showNotification('上传成功！');
+          })
+          .catch(error => {
+            // 处理上传失败的情况
+            console.error(error);
+            this.showNotification('上传失败！');
+
+          });
+    },
+    showNotification(message) {
+      this.$alert(message);
     }
   }
 };
 </script>
+
+

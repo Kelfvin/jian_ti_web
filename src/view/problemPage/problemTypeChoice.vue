@@ -21,18 +21,13 @@
               width="200">
             </el-table-column>
         </el-table>
-      <div class="upload-container">
-        <component :is="uploadVue"></component>
-      </div>
     </div>
-
 </template>
 <script>
     export default{
         name:'choicePage',
         data(){
             return{
-                uploadVue:uploadFile,
                 tableData: [{
                     problemGroup: '七天速通全栈,我觉得这就是一种成理自信',
                     problemCount: '∞',

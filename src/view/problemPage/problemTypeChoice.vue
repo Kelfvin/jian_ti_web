@@ -24,6 +24,7 @@
     </div>
 </template>
 <script>
+    import uploadFile from "@/view/uploadFile";
     export default{
         name:'choicePage',
         data(){
@@ -44,7 +45,6 @@
                 }
         },methods: {
             setCurrent(row) {
-                console.log(this.tableData.indexOf(row))
                 this.$router.push('/problems/'+this.tableData.indexOf(row)+'/describe/1')
                 this.$refs.singleTable.setCurrentRow(row);
             },
@@ -57,5 +57,6 @@
         height: 70vh;
         border-radius: 25px;
         background-color: white;
-        padding: 5%;    }
+        padding: 5%;    
+    }
 </style>

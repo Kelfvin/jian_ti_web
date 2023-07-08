@@ -30,9 +30,9 @@
                             <el-input
                             prefix-icon="el-icon-chat-line-round"
                             style="width: 20vw;"
-                            type="text"
+                            type="commentResponse"
                             placeholder="在这里留下你宝贵的回复吧"
-                            v-model="text"
+                            v-model="commentResponse"
                             maxlength="100"
                             size="large"
                             show-word-limit/>
@@ -65,7 +65,8 @@
         data(){
             return{
                 text:'',
-                circleUrl:''
+                circleUrl:'',
+                commentResponse:''
             }
         }
     }
@@ -118,5 +119,8 @@
     .responseComment{
         margin: 15px;
         color: #C0C4CC;
+    }
+    .submitComment >>>.el-input__inner{ /* 穿透scoped */
+        border-radius: 25px;
     }
 </style>

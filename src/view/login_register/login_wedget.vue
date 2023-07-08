@@ -39,19 +39,33 @@ export default {
     }
   },
   methods: {
-    login() {
-      // this.$refs.loginForm.validate(valid => {
-      //   if (valid) {
-      //     // 执行登录逻辑
-      //     console.log('登录成功')
-      //   } else {
-      //     console.log('表单验证失败')
-      //     return false
-      //   }
-      // }    
-      // )
+    async login() {
+      // 数据校验
+      if(this.loginData.username==""||this.loginData.password==""){
+        return this.$message.error("请输入账号和密码");
+      }
 
-      router.push('/')
+      // 发送请求
+      let loginForm = {
+        username: this.loginData.username,
+        password: this.loginData.password,
+      }
+
+      try{
+        const {data:res} = await this.$http.post("login",loginForm)
+
+        if(res.meta.status !== 200){
+          return this.$message.error(res.meta.msg);
+        }
+
+        this.$message.success('登录成功')
+        window.sessionStorage.setItem('token',res.data.token)
+        router.push('/')
+
+      }catch(e){
+        this.$message.error(e)
+      }
+
     }
   }
 }

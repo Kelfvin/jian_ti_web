@@ -37,7 +37,7 @@
     <i class="el-icon-folder"></i>
     <span slot="title" style="font-size:17px;">我的题库</span>
   </el-menu-item>
-  <el-menu-item index="4">
+  <el-menu-item index="/historyData">
     <i class="el-icon-time"></i>
     <span slot="title" style="font-size:17px;">历史数据</span>
   </el-menu-item>

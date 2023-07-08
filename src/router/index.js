@@ -6,6 +6,7 @@ import RigisterPage from "../view/rigister"
 import SelfPage from "../view/userinfo"
 import ProblemsPage from "../view/problems"
 import payCheck from "../view/payCheck";
+import historyData from "../view/historyData"
 
 // 声明常量
 
@@ -30,6 +31,10 @@ const router = new VueRouter({
                 {
                     path:'/payCheck',
                     component:payCheck
+                },
+                {
+                    path:'/historyData',
+                    component:historyData
                 }
             ]
         },

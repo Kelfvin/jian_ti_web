@@ -41,7 +41,7 @@
     <i class="el-icon-user"></i>
     <span slot="title" style="font-size:20px;">个人资料</span>
   </el-menu-item>
-  <el-menu-item index="/">
+  <el-menu-item index="/useInstruction">
     <i class="el-icon-warning-outline"></i>
     <span slot="title" style="font-size:20px;">使用说明</span>
   </el-menu-item>
@@ -125,7 +125,7 @@ export default {
 .login-link{
   position: absolute;
   right: 75px;
-  top:25px;
+  top:40px;
   font-size: 20px;
 }
 </style>

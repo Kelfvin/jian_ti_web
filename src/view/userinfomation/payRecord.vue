@@ -45,10 +45,11 @@ export default {
       return {
         dataSearch:'',
         // 从数据库拿取信息（待改）
-        tableData: [{date: '2023-7-2',username: '周涛',money: '300R'}, 
-                    {date: '2023-7-4',username: '周涛',money: '500R'}, 
-                    {date: '2023-7-5',username: '周涛',money: '800R'}, 
-                    {date: '2023-7-8',username: '周涛',money: '100R'},
+        tableData: [
+            {date: '2023-7-2',username: '周涛',money: '300R'}, 
+            {date: '2023-7-4',username: '周涛',money: '500R'}, 
+            {date: '2023-7-5',username: '周涛',money: '800R'}, 
+            {date: '2023-7-8',username: '周涛',money: '100R'},
                    ]
              }
             },

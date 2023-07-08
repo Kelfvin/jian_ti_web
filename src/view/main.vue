@@ -33,7 +33,7 @@
     <i class="el-icon-goods"></i>
     <span slot="title" style="font-size:20px;">购买题库</span>
   </el-menu-item>
-  <el-menu-item index="/">
+  <el-menu-item index="/historyData">
     <i class="el-icon-time"></i>
     <span slot="title" style="font-size:20px;">历史数据</span>
   </el-menu-item>
@@ -50,6 +50,9 @@
     <span slot="title" style="font-size:20px;">余额充值</span>
   </el-menu-item>
 </el-menu>
+    <div class="myVue">
+      <UploadFile></UploadFile>
+    </div>
 </el-aside>
   <el-container>
 
@@ -71,8 +74,16 @@
 </template>
 
 <script>
+import uploadFile from "@/view/uploadFile";
+import UploadFile from "@/view/uploadFile";
 export default {
   name: 'MainPage',
+  components: {UploadFile},
+  data(){
+    return{
+      uploadFile
+    }
+  }
 }
 </script>
 

@@ -19,6 +19,7 @@
 </template>
 
 <script>
+const genPassword = require('./gen_password')
 import router from '@/router'
 export default {
   name:'Login',
@@ -45,10 +46,12 @@ export default {
         return this.$message.error("请输入账号和密码");
       }
 
+      var encodedPwd = genPassword(this.loginData.password)
+
       // 发送请求
       let loginForm = {
         username: this.loginData.username,
-        password: this.loginData.password,
+        password: encodedPwd,
       }
 
       try{

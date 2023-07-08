@@ -2,6 +2,8 @@ import Vue from "vue"
 import VueRouter from "vue-router"
 import LoginPage from "../view/login_register/login"
 import MainPage from "../view/main"
+import historyData from "../view/historyData"
+
 import SelfPage from "../view/userinfomation/userinfo"
 import ProblemsPage from "../view/problemPage/problems"
 import ProblemsDescribe from "../view/problemPage/problemDescribe"
@@ -53,7 +55,12 @@ const router = new VueRouter({
                 {
                     path:'/payCheck',
                     component:payCheck
-                },{
+                },
+                {
+                    path:'/historyData',
+                    component:historyData
+                }
+                ,{
                     path:'/CardList',
                     component: CardList
                 },{

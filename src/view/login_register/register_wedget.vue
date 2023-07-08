@@ -20,6 +20,9 @@
 </template>
 
 <script>
+const genPassword = require('./gen_password')
+
+
 export default {
   name:'Register',
   data() {
@@ -56,6 +59,49 @@ export default {
   methods: {
     register() {
       // 注册逻辑
+      
+      this.$refs.registerForm.validate(async (valid) => {
+      if (valid) {
+        // 表单验证通过，执行注册逻辑
+
+        // 这里可以通过发送网络请求将注册数据发送给后端进行处理
+        // 示例代码中使用console.log打印注册数据
+        console.log(this.registerData);
+
+        var password = this.registerData.password
+
+        password = genPassword(password)
+
+
+      // 发送请求
+      let loginForm = {
+        username: this.registerData.username,
+        password: password,
+      }
+
+      try{
+        const {data:res} = await this.$http.post("register",loginForm)
+
+        if(res.meta.status !== 200){
+          return this.$message.error(res.meta.msg);
+        }
+
+        this.$message.success('注册成功!')
+
+        this.$emit('changeIndex', 0)
+
+      }catch(e){
+        this.$message.error(e)
+      }
+
+
+      } else {
+        // 表单验证不通过，显示错误信息
+        console.log('表单验证不通过');
+      }
+    });
+
+
     }
   }
 }

@@ -1,9 +1,10 @@
 <template>
-    <div class="problemNow" v-if="this.problemTable.length">
+    <div class="problemNow" v-if="this.problemTable">
         <div style="line-height: 30px;">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {{this.nowSelect}}.
-            {{this.problemTable[this.nowSelect-1]['题目内容']}}
+            <p v-if="this.problemTable[this.nowSelect-1]&&this.problemTable[this.nowSelect-1]['题目内容']">{{this.nowSelect}}.
+                {{this.problemTable[this.nowSelect-1]['题目内容']}}
+            </p>
         </div>
         <div v-show="showAnswer" v-if="isRight" :message="message" style="color:green;padding-left: 3%;">{{message}}</div>
         <div v-show="showAnswer" v-if="!isRight" :message="message" style="color:red;padding-left: 3%;">{{message}}</div>
@@ -91,11 +92,21 @@
             } next();
         },methods: {
             async getData(){
-                let groupId=this.$route.params.groupId+1
-                let url='http://8.142.36.198:3000/problem/'+groupId
-                let data=await api.doGet(url)
+                let data=null;
+                try{
+                    let groupId=this.$route.params.groupId+1
+                    let url='http://localhost:3000/problem/'+groupId
+                    data=await api.doGet(url)
+                    
+                }catch(e){
+                    console.log(e.message)
+                }
+                this.$nextTick(()=>{
+                    this.problemTable = data.data
+                });
+                
                 // console.log(data)
-                this.problemTable = data.data
+                
                 // console.log(this.problemTable);
             },compareData(){
                 this.showAnswer=true

@@ -32,13 +32,13 @@
                   </div>
                   <div class="IdCard">
                     <div class="text item" style="font-size: 1.2vw;font-weight: bold;">
-                  用户名：{{  }} 我已经在做了！
+                  用户名：{{ username }}
                 </div>
                 <div class="text item" style="font-size: 0.9vw;">
-                  邮箱：{{  }} 494407383@qq.com
+                  邮箱： 494407383@qq.com
                 </div>
                 <div class="text item" style="font-size: 0.7vw;">
-                  个性签名：{{  }} 牛！
+                  个性签名： 牛！
                 </div>
                   </div>
                   
@@ -101,7 +101,12 @@ export default{
       oldpas:'',
       newpas: '',
       newpas2:'',
-    }
+      username:'',
+    } 
+  },
+  mounted(){
+    // 在页面加载时获取用户名
+    this.getUsername();
   },
   methods:{
     cz(){
@@ -149,8 +154,10 @@ export default{
           this.$message.error('密码错误！服务器崩溃！请重启服务器！');
           // 处理请求错误的情况
         });
+    },getUsername() {
+      // 从 sessionStorage 中获取 username
+      this.username = window.sessionStorage.getItem('username');
     },
-
             //   // 读取数据库用户密码和输入的新密码进行比较然后更改
             //   changeps(){
             //     //获取用户输入的密码

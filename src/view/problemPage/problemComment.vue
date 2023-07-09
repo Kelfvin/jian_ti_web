@@ -55,7 +55,7 @@
             size="large"
             show-word-limit/>
             <div style="display: inline-block;width: 1vw;"></div>
-            <el-button type="primary" round>提交</el-button>
+            <el-button type="primary" round @click="submitComment">提交</el-button>
         </div>
     </div>
 </template>
@@ -92,10 +92,13 @@
         },methods: {
             async getComment(){
                 let groupId = this.$route.params.groupId+1
-                let url='http://localhost:3000/problemComment/'+groupId
+                let url='http://8.142.36.198:3000/problemComment/'+groupId
                 let data=await api.doGet(url)
                 this.comment=data.data
                 console.log(this.comment)
+            },submitComment(){
+                this.comment.push({'id':5,'用户名':'123','评论时间':new Date(),'评论内容':this.text,'题组ID':1})
+                this.text=''
             }
         },
     }

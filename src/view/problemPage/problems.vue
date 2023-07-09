@@ -96,7 +96,7 @@
                 })
             },toThePage(i){
                 this.pageSelect=i
-                console.log(this.className[(this.preSelect-1)%50])
+                // console.log(this.className[(this.preSelect-1)%50])
                 if(this.className[(this.preSelect-1)%50]!='problemId finish') this.$set(this.className,(this.preSelect-1)%50,'problemId')
                 this.preSelect=(this.pageSelect-1)*50+1
                 if(this.className[(this.preSelect-1)%50]!='problemId finish') this.$set(this.className,(this.preSelect-1)%50,'problemId active')
@@ -106,13 +106,13 @@
             },
             async getDataNum(){
                 let groupId = this.$route.params.groupId+1
-                let url='http://localhost:3000/problem/'+groupId
+                let url='http://8.142.36.198:3000/problem/'+groupId
                 let data=await api.doGet(url)
-                console.log(data)
+                // console.log(data)
                 this.problemsSum = data.data.length
                 this.page=Math.floor(this.problemsSum/50)
                 // let groupId = this.$route.params.groupId+1
-                // axios.get('http://localhost:3000/problem/'+groupId)
+                // axios.get('http://8.142.36.198:3000/problem/'+groupId)
                 // .then(response => {
                 //     // 处理响应数据
                 //     this.problemsSum

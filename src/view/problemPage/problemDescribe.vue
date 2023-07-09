@@ -95,7 +95,7 @@
                 let data=null;
                 try{
                     let groupId=this.$route.params.groupId+1
-                    let url='http://localhost:3000/problem/'+groupId
+                    let url='http://8.142.36.198:3000/problem/'+groupId
                     data=await api.doGet(url)
                     
                 }catch(e){

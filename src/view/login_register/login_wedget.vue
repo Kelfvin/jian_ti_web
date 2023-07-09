@@ -71,7 +71,7 @@ export default {
         console.log(this.loginData.username)
         //存入session
         window.sessionStorage.setItem('username', this.loginData.username);
-        router.push('/')
+        router.push('/choicePage')
 
       }catch(e){
         this.$message.error(e)

@@ -7,9 +7,11 @@ module.exports = defineConfig({
       fallback:{
         "crypto": require.resolve("stream-browserify")
       }
+    },
+  },devServer: {
+    historyApiFallback: true,
+    allowedHosts: "all",
     }
-  },
-  devServer: {
-    disableHostCheck: true,
-}
+    
+    
 })

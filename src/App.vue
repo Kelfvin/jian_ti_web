@@ -10,7 +10,11 @@
 export default {
   name: 'App',
   data:()=>{
-    return{}
+    return{
+      username:'',
+      userid:null,
+
+    }
   },mounted(){
     this.$router.push('/login')
   },

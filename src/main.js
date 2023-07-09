@@ -4,14 +4,13 @@ import router from './router/index'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
-axios.defaults.baseURL='http://127.0.0.1:3000'
+axios.defaults.baseURL='http://8.142.36.198:3000/front_api/'
 import axios from 'axios';
 
 export const EventBus = new Vue()
 
 // 配置请求的根路径
 
-axios.defaults.baseURL = 'http://127.0.0.1:3000/front_api/'
 
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem("token")

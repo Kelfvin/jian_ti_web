@@ -122,13 +122,13 @@ export default{
         return;
       }
       // 发送异步请求到后端，进行密码匹配和修改操作
-      await axios.get('http://localhost:3000/'+window.sessionStorage.getItem('username')+'/'+ genPassword(this.oldpas))
+      await axios.get('http://8.142.36.198:3000/' + genPassword(this.oldpas))
         .then(response => {
           console.log(response.data)
           const userPwd = response.data;
           if ((userPwd.data["user_pwd"]) === genPassword(this.oldpas)) {
             // 旧密码匹配成功，执行密码修改操作
-            axios.post('http://localhost:3000/update/'+ window.sessionStorage.getItem('username')+'/'+this.newpas+'/'+1)
+            axios.post('http://8.142.36.198:3000/'+ this.newpas)
               .then(response => {
                 console.log('密码修改成功');
                 this.$message.success('修改成功！');
@@ -165,7 +165,7 @@ export default{
             //     var newpas = this.newpas;
             //     var newpas2 = this.newpas2;
             //     //异步请求
-            //     axios.get('http://localhost:3000/'+oldpas)
+            //     axios.get('http://8.142.36.198:3000/'+oldpas)
             //           .then(response => {
             //             // 处理响应数据
             //           console.log(response.data.user_pwd);

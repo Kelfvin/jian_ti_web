@@ -12,7 +12,7 @@
                 <div style="padding: 14px;">
                     <div class="bottom clearfix">
                         <!--info表示可以查看-->
-                        <el-button type="info" plain @click="onclick(index2)">查看</el-button>
+                        <el-button type="info" plain @click="onclick()">查看</el-button>
                         <!--primary表示未购买，success表示已购买,同时设置为disabled-->
                         <el-button type="primary" plain >购买</el-button>
                     </div>
@@ -35,9 +35,9 @@ export default {
         this.getNames();
     },
     methods:{
-        onclick(index){
+        onclick(){
             this.$router.push({
-                path:'/CardList/Detail/'+index
+                path:'/CardList/Detail'
                 //query:{num:index}
             });
         },    

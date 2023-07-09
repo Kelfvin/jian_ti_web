@@ -1,18 +1,18 @@
 <template>
     <div class="commentWindow">
         <div class="OtherComment">
-            <div class="comment" v-for="i in 5" :key="i">
+            <div class="comment" v-for="(item,index) in comment" :key="index">
                 <div class="commentHeader">
                     <div class="userAvatar">
                         <el-avatar :size="40" :src="circleUrl"></el-avatar>
                     </div>
                     <div class="userInfo">
-                            用户名<br><br>
+                            用户名:<br><br>
                             2023-7-7
                     </div>
                 </div>
                 <div class="commentBody">
-                    &nbsp;&nbsp;{{i}}:你说的对，但是《你说的对》是由你说的对自主研发的一款全新你说的对。你说的对发生在一个被称作「你说的对」的你说的对世界，在这里被你说的对选中的你说的对将被授予「你说的对」，引导你说的对之力。你将扮演一位名为「你说的对」的神秘角色，在自由的旅行中邂逅你说的对、你说的对的你说的对们，和你说的对一起击败你说的对，寻找失散的你说的对，同时，逐步发掘「你说的对」的真相。
+                    &nbsp;&nbsp;{{index+1}}:你说的对，但是《你说的对》是由你说的对自主研发的一款全新你说的对。你说的对发生在一个被称作「你说的对」的你说的对世界，在这里被你说的对选中的你说的对将被授予「你说的对」，引导你说的对之力。你将扮演一位名为「你说的对」的神秘角色，在自由的旅行中邂逅你说的对、你说的对的你说的对们，和你说的对一起击败你说的对，寻找失散的你说的对，同时，逐步发掘「你说的对」的真相。
                 </div>
                 <div class="commentFooter">
                     <el-collapse>
@@ -60,15 +60,44 @@
     </div>
 </template>
 <script>
+    import axios from 'axios';
+    let api=axios.create({
+        timeout:50000
+    })
+    api.interceptors.response.use(response=>{
+        return response
+    },(error)=>{
+        return error.response
+    })
+
+    api.doGet=async(url)=>{
+        let {data}=await api.get(url)
+        return data
+    }
+    api.doPost=async(url,param)=>{
+        let {data}=await api.post(url)
+        return data
+    }
     export default{
         name:'ProblemsComment',
         data(){
             return{
                 text:'',
                 circleUrl:'',
-                commentResponse:''
+                commentResponse:'',
+                comment:[]
             }
-        }
+        },mounted(){
+            this.getComment()
+        },methods: {
+            async getComment(){
+                let groupId = this.$route.params.groupId+1
+                let url='http://localhost:3000/problemComment/'+groupId
+                let data=await api.doGet(url)
+                this.comment=data.data
+                console.log(this.comment)
+            }
+        },
     }
 </script>
 <style scoped>

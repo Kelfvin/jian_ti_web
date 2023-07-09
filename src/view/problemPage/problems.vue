@@ -52,6 +52,24 @@
     </div>
 </template>
 <script>
+    import axios from 'axios';
+    let api=axios.create({
+        timeout:50000
+    })
+    api.interceptors.response.use(response=>{
+        return response
+    },(error)=>{
+        return error.response
+    })
+
+    api.doGet=async(url)=>{
+        let {data}=await api.get(url)
+        return data
+    }
+    api.doPost=async(url,param)=>{
+        let {data}=await api.post(url)
+        return data
+    }
     export default{
         name:'problems',
         data(){
@@ -83,6 +101,27 @@
                 this.preSelect=(this.pageSelect-1)*50+1
                 this.$set(this.className,(this.preSelect-1)%50,'problemId active')
                 this.$router.push(`/problems/`+this.$route.params.groupId+`/describe/${this.preSelect}`)
+            },
+            async getDataNum(){
+                let groupId = this.$route.params.groupId+1
+                let url='http://localhost:3000/problem/'+groupId
+                let data=await api.doGet(url)
+                // console.log(data)
+                this.problemsSum = data.data.length
+                this.page=Math.floor(this.problemsSum/50)
+                // let groupId = this.$route.params.groupId+1
+                // axios.get('http://localhost:3000/problem/'+groupId)
+                // .then(response => {
+                //     // 处理响应数据
+                //     this.problemsSum
+                //     console.log(this.problemsSum)
+                //     // console.log(this.problemsSum)
+                //     // console.log(response.data.data);
+                // })
+                // .catch(error => {
+                //   // 错误处理
+                //   console.error(error);
+                // });
             }
         },
         beforeRouteUpdate(to, from, next) {
@@ -94,12 +133,13 @@
             }next();
         },
         mounted(){
+            this.getDataNum()   // 获取题目数
             this.$set(this.className,0,'problemId active')
             this.preSelect=1
             this.$router.push('/problems/'+this.$route.params.groupId+'/describe/1')
             this.groupId=this.$route.params.groupId // 路由传参，题目组序号
             this.$refs.menuRef.activeIndex = this.$route.path;  // 默认显示样式
-            this.page=this.problemsSum/50   // 获取页数
+            this.page= Math.floor(this.problemsSum/50)  // 获取页数
         },computed:{
             getIndex(){
                 return `/problems/`+this.groupId+`/describe/${this.preSelect}`

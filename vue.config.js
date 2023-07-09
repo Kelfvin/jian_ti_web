@@ -8,5 +8,8 @@ module.exports = defineConfig({
         "crypto": require.resolve("stream-browserify")
       }
     }
-  }
+  },
+  devServer: {
+    disableHostCheck: true,
+}
 })

@@ -39,12 +39,28 @@
 </template>
 <script>
     import axios from 'axios';
+    let api=axios.create({
+        timeout:50000
+    })
+    api.interceptors.response.use(response=>{
+        return response
+    },(error)=>{
+        return error.response
+    })
+
+    api.doGet=async(url)=>{
+        let {data}=await api.get(url)
+        return data
+    }
+    api.doPost=async(url,param)=>{
+        let {data}=await api.post(url)
+        return data
+    }
     export default{
         name:'ProblemsDescribe',
         data(){
             return{
                 problemTable:[],
-                problemsTable:[],
                 nowSelect:1,
                 options:null
             }
@@ -60,26 +76,29 @@
         },methods: {
             async getData(){
                 let groupId=this.$route.params.groupId+1
-                await axios.get('http://localhost:3000/problem/'+groupId)
-                .then(response => {
-                  // 处理响应数据
-                    this.problemTable=response.data.data
-                    // console.log(this.problemTable)
-                    this.options=Array.from({ length: 4 }, () => Array(50))
-                    for(var i=0;i<this.problemTable.length;i++){
-                        this.options[0][i]=this.problemTable[i]['选项A']
-                        this.options[1][i]=this.problemTable[i]['选项B']
-                        this.options[2][i]=this.problemTable[i]['选项C']
-                        this.options[3][i]=this.problemTable[i]['选项D']
-                    }
-                //   console.log(this.options)
-                //   console.log(this.problemTable)
-                //   console.log(response.data.data);
-                })
-                .catch(error => {
-                  // 错误处理
-                  console.error(error);
-                });
+                let url='http://localhost:3000/problem/'+groupId
+                let data=await api.doGet(url)
+                this.problemTable = data.data
+                // await axios.get('http://localhost:3000/problem/'+groupId)
+                // .then(response => {
+                //   // 处理响应数据
+                //     this.problemTable=response.data.data
+                //     // console.log(this.problemTable)
+                //     this.options=Array.from({ length: 4 }, () => Array(50))
+                //     for(var i=0;i<this.problemTable.length;i++){
+                //         this.options[0][i]=this.problemTable[i]['选项A']
+                //         this.options[1][i]=this.problemTable[i]['选项B']
+                //         this.options[2][i]=this.problemTable[i]['选项C']
+                //         this.options[3][i]=this.problemTable[i]['选项D']
+                //     }
+                // //   console.log(this.options)
+                // //   console.log(this.problemTable)
+                // //   console.log(response.data.data);
+                // })
+                // .catch(error => {
+                //   // 错误处理
+                //   console.error(error);
+                // });
                 
             },
         }

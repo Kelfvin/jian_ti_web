@@ -106,13 +106,13 @@
             },
             async getDataNum(){
                 let groupId = this.$route.params.groupId+1
-                let url='http://8.142.36.198:3000/problem/'+groupId
+                let url='http://localhost:3000/problem/'+groupId
                 let data=await api.doGet(url)
-                // console.log(data)
+                console.log(data)
                 this.problemsSum = data.data.length
                 this.page=Math.floor(this.problemsSum/50)
                 // let groupId = this.$route.params.groupId+1
-                // axios.get('http://8.142.36.198:3000/problem/'+groupId)
+                // axios.get('http://localhost:3000/problem/'+groupId)
                 // .then(response => {
                 //     // 处理响应数据
                 //     this.problemsSum

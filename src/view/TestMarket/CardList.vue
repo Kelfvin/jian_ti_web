@@ -2,25 +2,23 @@
 <template>
     
     <div class="form">
-        <el-row :span="6" v-for="(o, index1) in 2" :key="o" :offset="index1 > 0 ? 2 : 0">
-            <el-col :span="6" v-for="(o, index2) in 3" :key="o" :offset="index2 > 0 ? 2 : 0">
-                <el-card :body-style="{ padding: '14px' }" class="CardList">
-                    <div slot="header" class="clearfix">
-                        <img src="@/assets/CardIcon.png" class="image">
-                        <!--超过18汉字字符，应当省略-->
-                        <span>{{ names[index1*3+index2] }}</span>
+        <el-col :span="6" v-for="(index2) in names" :key="index2" :offset="1">
+            <el-card :body-style="{ padding: '14px' }" style="margin-top:15px" class="CardList">
+                <div slot="header" class="clearfix">
+                    <img src="@/assets/CardIcon.png" class="image">
+                    <!--超过18汉字字符，应当省略-->
+                    <span>{{ index2 }}</span>
+                </div>
+                <div style="padding: 14px;">
+                    <div class="bottom clearfix">
+                        <!--info表示可以查看-->
+                        <el-button type="info" plain @click="onclick(index2)">查看</el-button>
+                        <!--primary表示未购买，success表示已购买,同时设置为disabled-->
+                        <el-button type="primary" plain >购买</el-button>
                     </div>
-                    <div style="padding: 14px;">
-                        <div class="bottom clearfix">
-                            <!--info表示可以查看-->
-                            <el-button type="info" plain @click="onclick(index1*3+index2)">查看</el-button>
-                            <!--primary表示未购买，success表示已购买,同时设置为disabled-->
-                            <el-button type="primary" plain >购买</el-button>
-                        </div>
-                    </div>
-                </el-card>
-            </el-col>
-        </el-row>
+                </div>
+            </el-card>
+        </el-col>
     </div>
 </template>
 

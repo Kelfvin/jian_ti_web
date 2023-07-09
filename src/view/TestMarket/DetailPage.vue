@@ -6,8 +6,9 @@
             <el-button type="primary" plain>想看题库内更多习题？立即购买！</el-button>
         </el-card>
         <el-row :span="6" v-for="(o, index) in 5" :key="o" :offset="index > 0 ? 2 : 0">
-            <el-card :body-style="{ padding: '100px'}" class="sampleQuestion">
-                <span>题库号{{num}}试题{{index+1}}</span><br><br>
+            <el-card :body-style="{ padding: '100px'}" style="margin-top:10px" class="sampleQuestion">
+                <span>题库名:{{num}}</span><br><br>
+                <span>试题{{index+1}}</span><br><br>
                 <span>{{question[5*index]}}</span><br><br><br>
                 <el-button plain spam="10" class="choose">A{{question[5*index+1]}}</el-button>
                 <el-button plain span="10" class="choose">B{{question[5*index+2]}}</el-button>

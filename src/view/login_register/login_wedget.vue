@@ -21,6 +21,7 @@
 <script>
 const genPassword = require('./gen_password')
 import router from '@/router'
+
 export default {
   name:'Login',
   data() {
@@ -62,6 +63,8 @@ export default {
         }
 
         this.$message.success('登录成功')
+        // app.username = res.data.username
+        // app.userid = res.data.userid
         window.sessionStorage.setItem('token',res.data.token)
         router.push('/')
 

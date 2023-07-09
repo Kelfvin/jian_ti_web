@@ -11,7 +11,9 @@ export default {
   name: 'App',
   data:()=>{
     return{
-      
+      username:'',
+      userid:null,
+
     }
   },mounted(){
     this.$router.push('/login')

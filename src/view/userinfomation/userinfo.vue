@@ -32,13 +32,13 @@
                   </div>
                   <div class="IdCard">
                     <div class="text item" style="font-size: 1.2vw;font-weight: bold;">
-                  用户名：{{  }} 我已经在做了！
+                  用户名：{{ username }}
                 </div>
                 <div class="text item" style="font-size: 0.9vw;">
-                  邮箱：{{  }} 494407383@qq.com
+                  邮箱： 494407383@qq.com
                 </div>
                 <div class="text item" style="font-size: 0.7vw;">
-                  个性签名：{{  }} 牛！
+                  个性签名： 牛！
                 </div>
                   </div>
                   
@@ -101,7 +101,12 @@ export default{
       oldpas:'',
       newpas: '',
       newpas2:'',
-    }
+      username:'',
+    } 
+  },
+  mounted(){
+    // 在页面加载时获取用户名
+    this.getUsername();
   },
   methods:{
     cz(){
@@ -117,13 +122,13 @@ export default{
         return;
       }
       // 发送异步请求到后端，进行密码匹配和修改操作
-      await axios.get('http://localhost:3000/' + genPassword(this.oldpas))
+      await axios.get('http://localhost:3000/'+window.sessionStorage.getItem('username')+'/'+ genPassword(this.oldpas))
         .then(response => {
           console.log(response.data)
           const userPwd = response.data;
           if ((userPwd.data["user_pwd"]) === genPassword(this.oldpas)) {
             // 旧密码匹配成功，执行密码修改操作
-            axios.post('http://localhost:3000/'+ this.newpas)
+            axios.post('http://localhost:3000/update/'+ window.sessionStorage.getItem('username')+'/'+this.newpas+'/'+1)
               .then(response => {
                 console.log('密码修改成功');
                 this.$message.success('修改成功！');
@@ -149,8 +154,10 @@ export default{
           this.$message.error('密码错误！服务器崩溃！请重启服务器！');
           // 处理请求错误的情况
         });
+    },getUsername() {
+      // 从 sessionStorage 中获取 username
+      this.username = window.sessionStorage.getItem('username');
     },
-
             //   // 读取数据库用户密码和输入的新密码进行比较然后更改
             //   changeps(){
             //     //获取用户输入的密码

@@ -63,6 +63,11 @@ export default {
 
         this.$message.success('登录成功')
         window.sessionStorage.setItem('token',res.data.token)
+        // 将用户名存储到组件的数据中
+        this.loginData.username = res.data.username;
+        console.log(this.loginData.username)
+        //存入session
+        window.sessionStorage.setItem('username', this.loginData.username);
         router.push('/')
 
       }catch(e){

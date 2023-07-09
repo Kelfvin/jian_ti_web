@@ -8,14 +8,14 @@
                     </div>
                     <div class="userInfo" v-if="comment[index]['用户名']">
                             {{comment[index]['用户名']}}<br><br>
-                            2023-7-7
+                            <p v-if="comment[index]['评论时间']">{{new Date(comment[index]['评论时间'])}}</p>
                     </div>
                 </div>
                 <div class="commentBody" v-if="comment[index]['评论内容']">
                     &nbsp;&nbsp;&nbsp;&nbsp;{{comment[index]['评论内容']}}
                 </div>
                 <div class="commentFooter">
-                    <el-collapse>
+                    <!-- <el-collapse>
                         <el-collapse-item name="1">
                             <template #title>
                                 <div class="title-container">
@@ -39,7 +39,7 @@
                             <div style="display: inline-block;width: 1vw;"></div>
                             <el-button type="primary">回复</el-button>                     
                         </el-collapse-item>
-                    </el-collapse>
+                    </el-collapse> -->
                     
                 </div>
                 <hr>
@@ -92,7 +92,7 @@
         },methods: {
             async getComment(){
                 let groupId = this.$route.params.groupId+1
-                let url='http://8.142.36.198:3000/problemComment/'+groupId
+                let url='http://localhost:3000/problemComment/'+groupId
                 let data=await api.doGet(url)
                 this.comment=data.data
                 console.log(this.comment)

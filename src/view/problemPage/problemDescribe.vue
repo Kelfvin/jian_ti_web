@@ -42,7 +42,7 @@
 <script>
     import axios from 'axios';
     let api=axios.create({
-        timeout:50000
+        timeout:500000
     })
     api.interceptors.response.use(response=>{
         return response
@@ -68,7 +68,9 @@
                 message:'',
                 selectChoose:'',
                 showAnswer:true,
-                isRight:true
+                isRight:true,
+                trueProblem:0,
+                falseProblem:0
             }
         },mounted() {
             this.selectChoose=''
@@ -76,6 +78,8 @@
             this.showAnswer = false
             this.$set(this, "nowSelect",this.$route.params.id);
             this.getData();
+            this.trueProblem=0,
+            this.falseProblem=0
         },beforeRouteUpdate(to, from, next) {
             const currentId = this.$route.params.id; // 当前的 ID
             const nextId = to.params.id; // 即将切换到的 ID
@@ -88,40 +92,23 @@
         },methods: {
             async getData(){
                 let groupId=this.$route.params.groupId+1
-                let url='http://8.142.36.198:3000/problem/'+groupId
+                let url='http://localhost:3000/problem/'+groupId
                 let data=await api.doGet(url)
+                // console.log(data)
                 this.problemTable = data.data
-                // await axios.get('http://8.142.36.198:3000/problem/'+groupId)
-                // .then(response => {
-                //   // 处理响应数据
-                //     this.problemTable=response.data.data
-                //     // console.log(this.problemTable)
-                //     this.options=Array.from({ length: 4 }, () => Array(50))
-                //     for(var i=0;i<this.problemTable.length;i++){
-                //         this.options[0][i]=this.problemTable[i]['选项A']
-                //         this.options[1][i]=this.problemTable[i]['选项B']
-                //         this.options[2][i]=this.problemTable[i]['选项C']
-                //         this.options[3][i]=this.problemTable[i]['选项D']
-                //     }
-                // //   console.log(this.options)
-                // //   console.log(this.problemTable)
-                // //   console.log(response.data.data);
-                // })
-                // .catch(error => {
-                //   // 错误处理
-                //   console.error(error);
-                // });
+                // console.log(this.problemTable);
             },compareData(){
-                // console.log(this.selectChoose)
                 this.showAnswer=true
-                // console.log(this.problemTable[this.nowSelect-1]['正确选项'])
                 if(this.problemTable[this.nowSelect-1]['正确选项']==this.selectChoose) {
                     this.message='正确,答案为'+this.selectChoose
+                    this.trueProblem++
                     this.isRight=true
                 }else{
                     this.message='错误,正确答案为'+this.problemTable[this.nowSelect-1]['正确选项']
+                    this.falseProblem++
                     this.isRight=false
                 }
+                if(this.problemTable.length==this.$route.params.id) this.message='已完成全部题目,其中正确:'+this.trueProblem+'道,错误:'+this.falseProblem+'道'
                 this.$emit("isFinish")
             }
         }

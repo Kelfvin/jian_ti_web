@@ -45,7 +45,7 @@
                     <el-menu-item :index="getIndex">题目描述</el-menu-item>
                     <el-menu-item :index="goToComment">评论</el-menu-item>
                 </el-menu>
-                <router-view/>
+                <router-view @isFinish="handleIsFinish"/>
                 <!-- 题目描述 -->
             </el-main>
         </el-container>
@@ -87,20 +87,22 @@
         methods:{
             toTheProblem:function(index){
                 // 确保数据为响应式更新
-                if(this.preSelect !=-1) this.$set(this.className,(this.preSelect-1)%50,'problemId')                // 记录当前选择的题目
+                if(this.preSelect !=-1&&this.className[(this.preSelect-1)%50]!='problemId finish') this.$set(this.className,(this.preSelect-1)%50,'problemId')                // 记录当前选择的题目
                 this.preSelect=index
                 // 响应更新样式
-                this.$set(this.className,(index-1)%50,'problemId active')
+                if(this.className[(this.preSelect-1)%50]!='problemId finish') this.$set(this.className,(index-1)%50,'problemId active')
                 this.$router.push({
                     path:`/problems/`+this.$route.params.groupId+`/describe/${this.preSelect}`
                 })
-            },
-            toThePage(i){
+            },toThePage(i){
                 this.pageSelect=i
-                this.$set(this.className,(this.preSelect-1)%50,'problemId')
+                console.log(this.className[(this.preSelect-1)%50])
+                if(this.className[(this.preSelect-1)%50]!='problemId finish') this.$set(this.className,(this.preSelect-1)%50,'problemId')
                 this.preSelect=(this.pageSelect-1)*50+1
-                this.$set(this.className,(this.preSelect-1)%50,'problemId active')
+                if(this.className[(this.preSelect-1)%50]!='problemId finish') this.$set(this.className,(this.preSelect-1)%50,'problemId active')
                 this.$router.push(`/problems/`+this.$route.params.groupId+`/describe/${this.preSelect}`)
+            },handleIsFinish(){
+                this.$set(this.className,(this.$route.params.id-1)%50,'problemId finish')
             },
             async getDataNum(){
                 let groupId = this.$route.params.groupId+1

@@ -6,13 +6,13 @@
                     <div class="userAvatar">
                         <el-avatar :size="40" :src="circleUrl"></el-avatar>
                     </div>
-                    <div class="userInfo">
-                            用户名:<br><br>
+                    <div class="userInfo" v-if="comment[index]['用户名']">
+                            {{comment[index]['用户名']}}<br><br>
                             2023-7-7
                     </div>
                 </div>
-                <div class="commentBody">
-                    &nbsp;&nbsp;{{index+1}}:你说的对，但是《你说的对》是由你说的对自主研发的一款全新你说的对。你说的对发生在一个被称作「你说的对」的你说的对世界，在这里被你说的对选中的你说的对将被授予「你说的对」，引导你说的对之力。你将扮演一位名为「你说的对」的神秘角色，在自由的旅行中邂逅你说的对、你说的对的你说的对们，和你说的对一起击败你说的对，寻找失散的你说的对，同时，逐步发掘「你说的对」的真相。
+                <div class="commentBody" v-if="comment[index]['评论内容']">
+                    &nbsp;&nbsp;&nbsp;&nbsp;{{comment[index]['评论内容']}}
                 </div>
                 <div class="commentFooter">
                     <el-collapse>

@@ -92,7 +92,7 @@
         },methods: {
             async getComment(){
                 let groupId = this.$route.params.groupId+1
-                let url='http://localhost:3000/problemComment/'+groupId
+                let url='http://8.142.36.198:3000/problemComment/'+groupId
                 let data=await api.doGet(url)
                 this.comment=data.data
                 console.log(this.comment)

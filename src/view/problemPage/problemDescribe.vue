@@ -92,7 +92,7 @@
         },methods: {
             async getData(){
                 let groupId=this.$route.params.groupId+1
-                let url='http://localhost:3000/problem/'+groupId
+                let url='http://8.142.36.198:3000/problem/'+groupId
                 let data=await api.doGet(url)
                 // console.log(data)
                 this.problemTable = data.data

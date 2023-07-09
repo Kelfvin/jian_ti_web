@@ -35,7 +35,7 @@ export default {
         this.getNames();
     },
     methods:{
-        onclick(index){
+        onclick(){
             this.$router.push({
                 path:'/CardList/Detail'
                 //query:{num:index}

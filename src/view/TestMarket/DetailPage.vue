@@ -45,7 +45,7 @@ export default {
     },
     //业务处理
     async getNames(){
-            axios.get('http://localhost:3000/sysapi/cardListDetail')
+            axios.get('http://8.142.36.198:3000/sysapi/cardListDetail')
             .then(response=>{
                 this.question=response.data.data;
             })

@@ -2,18 +2,18 @@
 <template>
     
     <div class="form">
-        <el-row :span="6" v-for="(o, index) in 2" :key="o" :offset="index > 0 ? 2 : 0">
-            <el-col :span="6" v-for="(o, index) in 3" :key="o" :offset="index > 0 ? 2 : 0">
+        <el-row :span="6" v-for="(o, index1) in 2" :key="o" :offset="index1 > 0 ? 2 : 0">
+            <el-col :span="6" v-for="(o, index2) in 3" :key="o" :offset="index2 > 0 ? 2 : 0">
                 <el-card :body-style="{ padding: '14px' }" class="CardList">
                     <div slot="header" class="clearfix">
                         <img src="@/assets/CardIcon.png" class="image">
                         <!--超过18汉字字符，应当省略-->
-                        <span>某某题库</span>
+                        <span>{{ names[index1*3+index2] }}</span>
                     </div>
                     <div style="padding: 14px;">
                         <div class="bottom clearfix">
                             <!--info表示可以查看-->
-                            <el-button type="info" plain @click="onclick()">查看</el-button>
+                            <el-button type="info" plain @click="onclick(index1*3+index2)">查看</el-button>
                             <!--primary表示未购买，success表示已购买,同时设置为disabled-->
                             <el-button type="primary" plain >购买</el-button>
                         </div>
@@ -25,10 +25,30 @@
 </template>
 
 <script >
+import axios from "axios"
 export default {
+    data(){
+        return{
+            names:[]
+        }
+    },
+    mounted(){
+
+        this.getNames();
+    },
     methods:{
-        onclick(){
-            this.$router.push('/CardList/Detail');
+        onclick(index){
+            this.$router.push({
+                path:'/CardList/Detail/'+index
+                //query:{num:index}
+            });
+        },    
+        //业务处理
+        async getNames(){
+            axios.get('http://localhost:3000/sysapi/cardList')
+            .then(response=>{
+                this.names=response.data.data;
+            })
         }
     }
 }

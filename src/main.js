@@ -6,6 +6,8 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 axios.defaults.baseURL='http://8.142.36.198:3000/front_api/'
 import axios from 'axios';
+// 原型件，在任何地方都可以使用，不用创建对象
+Vue.prototype.$http = axios
 
 export const EventBus = new Vue()
 
@@ -23,8 +25,7 @@ axios.interceptors.response.use(response => {
   return response
 })
 
-// 原型件，在任何地方都可以使用，不用创建对象
-Vue.prototype.$http = axios
+
 
 
 Vue.use(ElementUI);

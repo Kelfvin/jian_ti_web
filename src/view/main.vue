@@ -3,6 +3,7 @@
 <!-- 头部信息 -->
 <el-header height="80px" >
   <div class="login-link">
+    
     <router-link to="/login">点击注销</router-link>
   </div>
   <span style="display:inline-block;margin-top:20px;font-size: 30px;font-weight: bold;">简题 · </span>

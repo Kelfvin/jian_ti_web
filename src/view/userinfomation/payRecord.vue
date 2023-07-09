@@ -50,6 +50,13 @@ export default {
             {date: '2023-7-4',username: '周涛',money: '500R'}, 
             {date: '2023-7-5',username: '周涛',money: '800R'}, 
             {date: '2023-7-8',username: '周涛',money: '100R'},
+            {date: '2023-7-7',username: '周涛',money: '1100R'},
+            {date: '2023-7-7',username: '周涛',money: '200R'},
+            {date: '2023-7-3',username: '周涛',money: '150R'},
+            {date: '2023-7-2',username: '周涛',money: '110R'},
+            {date: '2023-7-5',username: '周涛',money: '150R'},
+            {date: '2023-7-4',username: '周涛',money: '150R'},
+            {date: '2023-7-6',username: '周涛',money: '300R'},
                    ]
              }
             },

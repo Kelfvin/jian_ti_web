@@ -5,8 +5,6 @@
         </div>
         <el-divider/>
 
-        <el-skeleton :rows="6" animated />
-        <el-divider/>
 
         <div class="block">
         <el-timeline>

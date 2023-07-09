@@ -13,7 +13,10 @@ export default {
     return{}
   },mounted(){
     this.$router.push('/login')
-  }
+  },
+  devServer: {
+        disableHostCheck: true,
+    }
 }
 
 </script>

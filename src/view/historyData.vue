@@ -27,7 +27,7 @@ export default {
 
       // 从后端获取数据
       axios
-        .get("http://localhost:3000/backapi/historyData")
+        .get("http://8.142.36.198:3000/backapi/historyData")
         .then((response) => {
           // 将从后端获取的数据赋值给backendData对象
           var backendData = response.data;

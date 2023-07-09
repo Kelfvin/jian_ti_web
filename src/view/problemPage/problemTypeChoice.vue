@@ -54,7 +54,7 @@
                 this.$refs.singleTable.setCurrentRow(row);
             },
             async getData(){
-                let url='http://localhost:3000/problemGroup'
+                let url='http://8.142.36.198:3000/problemGroup'
                 let data=await api.doGet(url)
                 this.tableData=data.data
                 // console.log(this.tableData)

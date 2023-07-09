@@ -82,6 +82,7 @@
                 className:Array(50).fill('problemId'),
                 isDisabled:true,
                 groupId:-1, // 题组序号
+                dataTable:null
             }
         },
         methods:{
@@ -108,9 +109,13 @@
                 let groupId = this.$route.params.groupId+1
                 let url='http://8.142.36.198:3000/problem/'+groupId
                 let data=await api.doGet(url)
+                this.dataTable=data
+                
+                await this.$nextTick(function(){
+                    this.problemsSum = this.dataTable.data.length
+                    this.page=Math.floor(this.problemsSum/50)
+                });
                 // console.log(data)
-                this.problemsSum = data.data.length
-                this.page=Math.floor(this.problemsSum/50)
                 // let groupId = this.$route.params.groupId+1
                 // axios.get('http://8.142.36.198:3000/problem/'+groupId)
                 // .then(response => {
